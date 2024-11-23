@@ -5,7 +5,6 @@ const port = process.env.PORT;
 const connectionString = process.env.DB_CONNECT;
 
 const mongoose = require("mongoose");
-console.log(process.env.DB_CONNECT);
 mongoose.connect(connectionString);
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
