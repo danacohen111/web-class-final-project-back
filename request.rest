@@ -8,11 +8,13 @@ Content-Type: application/json
     "content": "Test"
 }
 
+###
+
 POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "post ID",  
+  "postId": "6744c75ed8a5d2e3225d9539",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }
