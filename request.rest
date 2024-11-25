@@ -8,20 +8,23 @@ Content-Type: application/json
     "content": "Test"
 }
 
+###
+
 POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "6744c75ed8a5d2e3225d9539",  
+  "postId": "6744dc0e9ce738f0e3525357",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }
 
-PUT http://localhost:3000/comments/comment/1
+####
+
+PUT http://localhost:3000/comments/comment/6744dc379ce738f0e352535e
 Content-Type: application/json
 
 {
-  "sender": "Ilana",
   "content": "Good job"
 }
 
