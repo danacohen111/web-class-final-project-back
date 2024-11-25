@@ -1,0 +1,10 @@
+### Create a new comment on a post
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "postId": "post ID",  
+  "sender": "Ilana Belokon",
+  "content": "Great post! I really enjoyed reading it."
+}
+
