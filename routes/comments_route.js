@@ -3,3 +3,5 @@ const router = express.Router();
 const commentController = require('../controllers/commentController');
 
 router.post('/', commentController.createComment);
+router.put('/comment/:id', commentController.updateComment);
+

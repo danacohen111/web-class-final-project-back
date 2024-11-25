@@ -21,5 +21,33 @@ const createComment = async (req, res) => {
       res.status(400).send(error.message);
     }
   };
+
+  
+const updateComment = async (req, res) => {
+    const commentId = req.params.id;
+    const { sender, content } = req.body;
+  
+    try {
+      const comment = await CommentModel.findById(commentId);
+  
+      if (!comment) {
+        return res.status(404).send("Comment not found");
+      }
+  
+      comment.sender = sender || comment.sender;
+      comment.content = content || comment.content;
+      await comment.save();
+  
+      res.send(comment);
+    } catch (error) {
+      res.status(400).send(error.message);
+    }
+  };
+
+  module.exports = {
+    createComment,
+    updateComment
+  };
+  
   
 
