@@ -11,11 +11,10 @@ const commentSchema = new mongoose.Schema({
   },
   post: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Post',  // This links the comment to a specific post
+    ref: 'Post',  
     required: true,
   },
-}, { timestamps: true }); // Adds `createdAt` and `updatedAt` fields
-
+}, { timestamps: true }); 
 const commentModel = mongoose.model('Comment', commentSchema);
 
 module.exports = commentModel;
