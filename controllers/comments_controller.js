@@ -25,7 +25,7 @@ const createComment = async (req, res) => {
   
 const updateComment = async (req, res) => {
     const commentId = req.params.id;
-    const { sender, content } = req.body;
+    const { content } = req.body;
   
     try {
       const comment = await CommentModel.findById(commentId);
@@ -34,7 +34,6 @@ const updateComment = async (req, res) => {
         return res.status(404).send("Comment not found");
       }
   
-      comment.sender = sender || comment.sender;
       comment.content = content || comment.content;
       await comment.save();
   
