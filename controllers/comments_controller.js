@@ -48,8 +48,3 @@ const updateComment = async (req, res) => {
     createComment,
     updateComment
   };
-  
-  
-  module.exports = {
-    createComment
-  };
