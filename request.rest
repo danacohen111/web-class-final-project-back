@@ -7,3 +7,13 @@ Content-Type: application/json
     "owner": "Dana",
     "content": "Test"
 }
+
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+  "postId": "post ID",  
+  "sender": "Ilana Belokon",
+  "content": "Great post! I really enjoyed reading it."
+}
+
