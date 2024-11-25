@@ -8,14 +8,22 @@ Content-Type: application/json
     "content": "Test"
 }
 
+###
+
+GET http://localhost:3000/posts
+
+###
+
 POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "6744c75ed8a5d2e3225d9539",  
+  "postId": "6744dba9d21f91924e640d50",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }
+
+###
 
 PUT http://localhost:3000/comments/comment/1
 Content-Type: application/json
@@ -24,4 +32,8 @@ Content-Type: application/json
   "sender": "Ilana",
   "content": "Good job"
 }
+
+###
+
+DELETE http://localhost:3000/comment/comment/60d6c7e26f49e5d718c56b33  // Replace with an actual comment ID
 
