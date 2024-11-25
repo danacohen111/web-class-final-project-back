@@ -70,10 +70,26 @@ const getAllCommentsForPost = async (req, res) => {
       const comments = await CommentModel.find({ post: postId });
   
       if (comments.length === 0) {
-        return res.status(404).send("No comments found for this post");
+        return res.status(404).send("No comments found for this post.");
       }
   
       res.send(comments);
+    } catch (error) {
+      res.status(400).send(error.message);
+    }
+  };
+
+const getCommentById = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const comment = await CommentModel.findById(id);
+  
+      if (!comment) {
+        return res.status(404).send('Comment not found');
+      }
+  
+      res.status(200).json(comment);
     } catch (error) {
       res.status(400).send(error.message);
     }
@@ -83,5 +99,6 @@ const getAllCommentsForPost = async (req, res) => {
     createComment,
     updateComment,
     deleteComment,
-    getAllCommentsForPost
+    getAllCommentsForPost,
+    getCommentById
   };

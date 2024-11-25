@@ -10,4 +10,6 @@ router.delete('/comment/:id', commentsController.deleteComment);
 
 router.get('/:postId', commentsController.getAllCommentsForPost);
 
+router.get('/comment/:id', commentsController.getCommentById);
+
 module.exports = router;
