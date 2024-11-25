@@ -1,4 +1,4 @@
-const CommentModel = require('../models/comment');
+const CommentModel = require('../models/comments_model');
 const PostModel = require("../models/posts_model");
 
 const createComment = async (req, res) => {
@@ -22,4 +22,6 @@ const createComment = async (req, res) => {
     }
   };
   
-
+  module.exports = {
+    createComment
+  };
