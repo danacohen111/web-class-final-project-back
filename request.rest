@@ -4,13 +4,13 @@ Content-Type: application/json
 
 {
     "title": "New post",
-    "owner": "Dana",
+    "senderID": "331",
     "content": "Test"
 }
 
 ###
 
-GET http://localhost:3000/posts
+GET http://localhost:3000/post
 
 ###
 
@@ -23,3 +23,19 @@ Content-Type: application/json
   "content": "Great post! I really enjoyed reading it."
 }
 
+###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "title": "Updated post title",
+    "content": "Updated content"
+}
+
+###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "content": "Updated again"
+}
