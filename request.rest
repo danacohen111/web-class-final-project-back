@@ -1,16 +1,16 @@
 
-POST http://localhost:3000/posts
+POST http://localhost:3000/post
 Content-Type: application/json
 
 {
     "title": "New post",
-    "owner": "Dana",
+    "senderID": "333",
     "content": "Test"
 }
 
 ###
 
-GET http://localhost:3000/posts
+GET http://localhost:3000/post?sender=333
 
 ###
 
@@ -23,3 +23,5 @@ Content-Type: application/json
   "content": "Great post! I really enjoyed reading it."
 }
 
+###
+GET http://localhost:3000/post
