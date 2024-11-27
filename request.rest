@@ -11,6 +11,9 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/posts/6744dba9d21f91924e640d50
+###
+
+GET http://localhost:3000/posts
 
 ###
 
@@ -18,7 +21,7 @@ POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "6744c75ed8a5d2e3225d9539",  
+  "postId": "6744dba9d21f91924e640d50",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }

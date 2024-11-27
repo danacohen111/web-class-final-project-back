@@ -12,7 +12,6 @@ const createPost = async (req, res) => {
 
 const getPostById = async (req, res) => {
   const postId = req.params.id;
-
   try {
     const post = await PostModel.findById(postId);
     if (post) {
@@ -25,7 +24,17 @@ const getPostById = async (req, res) => {
   }
 };
 
+const getAllPosts = async (req, res) => {
+  try {
+      const posts = await PostModel.find();
+      res.send(posts);
+    } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
     createPost,
-    getPostById
+    getPostById,
+    getAllPosts
   };
