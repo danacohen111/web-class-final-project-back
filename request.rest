@@ -25,7 +25,7 @@ Content-Type: application/json
 
 ####
 
-PUT http://localhost:3000/comments/comment/6744dc379ce738f0e352535e
+PUT http://localhost:3000/comments/6749c27b9ce738f0e35253a0
 Content-Type: application/json
 
 {
