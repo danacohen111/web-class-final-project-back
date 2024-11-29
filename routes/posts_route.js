@@ -4,6 +4,8 @@ const postsController = require("../controllers/posts_controller");
 
 router.post("/", postsController.createPost);
 
+router.get("/:id", postsController.getPostById);
+
 router.get("/", postsController.getAllPosts);
 
 router.put("/:postId", postsController.updatePost);
