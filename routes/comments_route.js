@@ -4,11 +4,11 @@ const commentsController = require('../controllers/comments_controller');
 
 router.post('/', commentsController.createComment);
 
-router.put('/comment/:id', commentsController.updateComment);
+router.put('/:id', commentsController.updateComment);
 
-router.delete('/comment/:id', commentsController.deleteComment);
+router.delete('/:id', commentsController.deleteComment);
 
-router.get('/:postId', commentsController.getAllCommentsForPost);
+router.get('/', commentsController.getAllCommentsForPost);
 
 router.get('/:id', commentsController.getCommentById);
 
