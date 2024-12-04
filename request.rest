@@ -21,7 +21,7 @@ POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "6744dc0e9ce738f0e3525357",  
+  "postId": "67471f9b1368898cd3f6ca0c",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }
@@ -37,12 +37,12 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/comments?postId=6744dc0e9ce738f0e3525357
+GET http://localhost:3000/comments?postId=67471f9b1368898cd3f6ca0c
 
 ###
 
-GET http://localhost:3000/comments/6744dc269ce738f0e352535a
+GET http://localhost:3000/comments/67505b873f28e7b5e71277b5
 
 ###
 
-DELETE http://localhost:3000/comments/6749c62d9ce738f0e35253ae 
+DELETE http://localhost:3000/comments/67505b873f28e7b5e71277b5 
