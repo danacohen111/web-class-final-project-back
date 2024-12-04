@@ -4,13 +4,19 @@ Content-Type: application/json
 
 {
     "title": "New post",
-    "senderID": "333",
+    "senderID": "331",
     "content": "Test"
 }
 
 ###
 
-GET http://localhost:3000/posts/6744dba9d21f91924e640d50
+GET http://localhost:3000/post
+
+###
+
+GET http://localhost:3000/post/6744dba9d21f91924e640d50
+
+
 ###
 
 GET http://localhost:3000/post?sender=333
@@ -27,7 +33,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/post###
 
 PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
 Content-Type: application/json
@@ -47,3 +52,19 @@ GET http://localhost:3000/comments/6744dc269ce738f0e352535a
 ###
 
 DELETE http://localhost:3000/comments/6749c62d9ce738f0e35253ae 
+###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "title": "Updated post title",
+    "content": "Updated content"
+}
+
+###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "content": "Updated again"
+}
