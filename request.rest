@@ -27,7 +27,6 @@ Content-Type: application/json
 }
 
 ###
-###
 
 PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
 Content-Type: application/json
