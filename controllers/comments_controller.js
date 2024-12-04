@@ -64,7 +64,10 @@ const deleteComment = async (req, res) => {
 
   
 const getAllCommentsForPost = async (req, res) => {
-    const postId = req.params.postId;
+const postId = req.query.postId;
+  if (!postId) {
+        return res.status(400).send('Post ID is required');
+    }
   
     try {
       const comments = await CommentModel.find({ post: postId });
