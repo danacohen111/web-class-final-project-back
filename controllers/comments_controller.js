@@ -20,8 +20,34 @@ const createComment = async (req, res) => {
     } catch (error) {
       res.status(400).send(error.message);
     }
-  };
+};
+
   
+const updateComment = async (req, res) => {
+    const commentId = req.params.id;
+    const { content } = req.body;
+
+    if (!content) {
+      return res.status(400).json({ error: "Content is required" });
+    }
+
+    try {
+      const comment = await CommentModel.findById(commentId);
+
+      if (!comment) {
+        return res.status(404).json({ error: "Comment not found" });
+      }
+
+      comment.content = content;
+      await comment.save();
+
+      res.json(comment);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+};
+
   module.exports = {
-    createComment
+    createComment,
+    updateComment
   };
