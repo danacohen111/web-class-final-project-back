@@ -20,14 +20,13 @@ const createComment = async (req, res) => {
     } catch (error) {
       res.status(400).send(error.message);
     }
-  };
+};
 
   
 const updateComment = async (req, res) => {
     const commentId = req.params.id;
     const { content } = req.body;
 
-    // Validate input
     if (!content) {
       return res.status(400).json({ error: "Content is required" });
     }
@@ -47,24 +46,6 @@ const updateComment = async (req, res) => {
       res.status(400).json({ error: error.message });
     }
 };
-    const commentId = req.params.id;
-    const { content } = req.body;
-  
-    try {
-      const comment = await CommentModel.findById(commentId);
-  
-      if (!comment) {
-        return res.status(404).send("Comment not found");
-      }
-  
-      comment.content = content || comment.content;
-      await comment.save();
-  
-      res.send(comment);
-    } catch (error) {
-      res.status(400).send(error.message);
-    }
-  };
 
   module.exports = {
     createComment,

@@ -23,9 +23,9 @@ Content-Type: application/json
   "content": "Great post! I really enjoyed reading it."
 }
 
-####
+###
 
-PUT http://localhost:3000/comments/6749c27b9ce738f0e35253a0
+PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
 Content-Type: application/json
 
 {
