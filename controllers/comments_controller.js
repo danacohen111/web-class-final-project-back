@@ -58,7 +58,7 @@ const deleteComment = async (req, res) => {
         return res.status(404).send("Comment not found");
       }
   
-      await comment.remove();
+      await comment.deleteOne();
   
       res.send("Comment deleted successfully");
     } catch (error) {
@@ -105,11 +105,34 @@ const getCommentById = async (req, res) => {
       res.status(400).send(error.message);
     }
   };
+
+  const getAllComments = async (req, res) => {
+    try {
+        const comments = await CommentModel.find();
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+};
+
+const getComments = async (req, res) => {
+    const { id } = req.params;
+    const { postId } = req.query;
+
+    if (id) {
+        return getCommentById(req, res);
+    }
+
+    if (postId) {
+        return getAllCommentsForPost(req, res);
+    }
+
+    return getAllComments(req, res);
+};
   
   module.exports = {
     createComment,
     updateComment,
     deleteComment,
-    getAllCommentsForPost,
-    getCommentById
+    getComments
   };

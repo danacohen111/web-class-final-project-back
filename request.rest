@@ -14,7 +14,7 @@ GET http://localhost:3000/post
 
 ###
 
-GET http://localhost:3000/post/6744dba9d21f91924e640d50
+GET http://localhost:3000/post/67471fa41368898cd3f6ca0e
 
 
 ###
@@ -22,19 +22,28 @@ GET http://localhost:3000/post/6744dba9d21f91924e640d50
 GET http://localhost:3000/post?sender=333
 
 ###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "title": "Updated again!",
+    "content": "Updated content!!"
+}
+
+###
 
 POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "6744dc0e9ce738f0e3525357",  
+  "postId": "67471f9b1368898cd3f6ca0c",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }
 
 ###
 
-PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
+PUT http://localhost:3000/comments/675066550be685c196ef9460
 Content-Type: application/json
 
 {
@@ -43,28 +52,13 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/comments?postId=6744dc0e9ce738f0e3525357
+GET http://localhost:3000/comments?postId=67471f9b1368898cd3f6ca0c
 
 ###
 
-GET http://localhost:3000/comments/6744dc269ce738f0e352535a
+GET http://localhost:3000/comments/675066550be685c196ef9460
 
 ###
 
-DELETE http://localhost:3000/comments/6749c62d9ce738f0e35253ae 
-###
-PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
-Content-Type: application/json
+DELETE http://localhost:3000/comments/6750605d5be7df859450d23c 
 
-{
-    "title": "Updated post title",
-    "content": "Updated content"
-}
-
-###
-PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
-Content-Type: application/json
-
-{
-    "content": "Updated again"
-}
