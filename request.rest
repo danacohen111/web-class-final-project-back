@@ -1,6 +1,5 @@
 
 POST http://localhost:3000/post
-POST http://localhost:3000/post
 Content-Type: application/json
 
 {
@@ -16,6 +15,10 @@ GET http://localhost:3000/post
 ###
 
 GET http://localhost:3000/post/6744dba9d21f91924e640d50
+
+
+###
+
 GET http://localhost:3000/post?sender=333
 
 ###
@@ -30,7 +33,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/post###
 
 PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
 Content-Type: application/json
