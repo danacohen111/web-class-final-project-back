@@ -1,19 +1,25 @@
 
-POST http://localhost:3000/posts
+POST http://localhost:3000/post
 Content-Type: application/json
 
 {
     "title": "New post",
-    "owner": "Dana",
+    "senderID": "331",
     "content": "Test"
 }
 
 ###
 
-GET http://localhost:3000/posts/6744dba9d21f91924e640d50
+GET http://localhost:3000/post
+
 ###
 
-GET http://localhost:3000/posts
+GET http://localhost:3000/post/6744dba9d21f91924e640d50
+
+
+###
+
+GET http://localhost:3000/post?sender=333
 
 ###
 
@@ -45,4 +51,24 @@ GET http://localhost:3000/comments/67505b873f28e7b5e71277b5
 
 ###
 
+<<<<<<< HEAD
 DELETE http://localhost:3000/comments/67505b873f28e7b5e71277b5 
+=======
+DELETE http://localhost:3000/comments/6749c62d9ce738f0e35253ae 
+###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "title": "Updated post title",
+    "content": "Updated content"
+}
+
+###
+PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
+Content-Type: application/json
+
+{
+    "content": "Updated again"
+}
+>>>>>>> 99b6d4e5069a08c0b5a9691a455f3626666b06c5
