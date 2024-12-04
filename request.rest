@@ -10,6 +10,9 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3000/posts/6744dba9d21f91924e640d50
+###
+
 GET http://localhost:3000/posts
 
 ###
@@ -24,8 +27,9 @@ Content-Type: application/json
 }
 
 ###
+###
 
-PUT http://localhost:3000/comments/comment/6744e45b9ce738f0e3525382
+PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
 Content-Type: application/json
 
 {
@@ -34,10 +38,8 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/comments/comment/6744e45b9ce738f0e3525382  
+GET http://localhost:3000/comments?postId=6744dc0e9ce738f0e3525357
 
 ###
 
-GET http://localhost:3000/comments/6744dc0e9ce738f0e3525357
-
-
+DELETE http://localhost:3000/comments/6744dc269ce738f0e352535a  
