@@ -88,6 +88,10 @@ const postId = req.query.postId;
 
 const getCommentById = async (req, res) => {
     const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).send('Comment ID is required');
+    }
   
     try {
       const comment = await CommentModel.findById(id);
