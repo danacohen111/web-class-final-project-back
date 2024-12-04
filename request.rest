@@ -10,6 +10,9 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3000/posts/6744dba9d21f91924e640d50
+###
+
 GET http://localhost:3000/post?sender=333
 
 ###
@@ -18,10 +21,29 @@ POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "6744dba9d21f91924e640d50",  
+  "postId": "6744dc0e9ce738f0e3525357",  
   "sender": "Ilana Belokon",
   "content": "Great post! I really enjoyed reading it."
 }
 
 ###
-GET http://localhost:3000/post
+GET http://localhost:3000/post###
+
+PUT http://localhost:3000/comments/6750511a9ce738f0e35253b9
+Content-Type: application/json
+
+{
+  "content": "Good job"
+}
+
+###
+
+GET http://localhost:3000/comments?postId=6744dc0e9ce738f0e3525357
+
+###
+
+GET http://localhost:3000/comments/6744dc269ce738f0e352535a
+
+###
+
+DELETE http://localhost:3000/comments/6749c62d9ce738f0e35253ae 
