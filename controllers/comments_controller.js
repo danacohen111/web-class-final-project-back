@@ -58,7 +58,7 @@ const deleteComment = async (req, res) => {
         return res.status(404).send("Comment not found");
       }
   
-      await comment.remove();
+      await comment.deleteOne();
   
       res.send("Comment deleted successfully");
     } catch (error) {
