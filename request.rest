@@ -35,3 +35,6 @@ Content-Type: application/json
   "content": "Good job"
 }
 
+###
+
+DELETE http://localhost:3000/comments/6744dc269ce738f0e352535a  
