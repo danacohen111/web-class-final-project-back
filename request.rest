@@ -41,4 +41,8 @@ GET http://localhost:3000/comments?postId=6744dc0e9ce738f0e3525357
 
 ###
 
-DELETE http://localhost:3000/comments/6744dc269ce738f0e352535a  
+GET http://localhost:3000/comments/6744dc269ce738f0e352535a
+
+###
+
+DELETE http://localhost:3000/comments/6749c62d9ce738f0e35253ae 
