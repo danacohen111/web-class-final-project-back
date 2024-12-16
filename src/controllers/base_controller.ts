@@ -8,10 +8,10 @@ class BaseController<T> {
     }
 
     async getAll(req: Request, res: Response) {
-        const filter = req.query.owner;
+        const filter = req.query.sender;
         try {
             if (filter) {
-                const item = await this.model.find({ owner: filter });
+                const item = await this.model.find({ sender: filter });
                 res.send(item);
             } else {
                 const items = await this.model.find();
@@ -42,6 +42,20 @@ class BaseController<T> {
         try {
             const item = await this.model.create(body);
             res.status(201).send(item);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    };
+
+    async updateItem(req: Request, res: Response) {
+        const id = req.params.id;
+        const updateData = req.body;
+        try {
+            const updatedItem = await this.model.findByIdAndUpdate(id, updateData, { new: true });
+            if (!updatedItem) {
+                return res.status(404).send({ message: 'Item not found' });
+            }
+            res.status(200).send(updatedItem);
         } catch (error) {
             res.status(400).send(error);
         }
