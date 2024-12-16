@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "title": "New post",
-    "senderID": "3311111111",
+    "sender": "3311111111",
     "content": "Test"
 }
 
@@ -23,7 +23,7 @@ GET http://localhost:3000/posts/67471fa41368898cd3f6ca0e
 ###
 
 # Get posts by sender ID
-GET http://localhost:3000/posts/sender/331
+GET http://localhost:3000/posts?sender=3311111111
 
 ###
 
@@ -51,17 +51,17 @@ GET http://localhost:3000/comments
 
 ###
 
-# Get a comment by ID
-GET http://localhost:3000/comments/6750663a0be685c196ef945c
+# Get all comments for a post
+GET http://localhost:3000/comments?post=67471f9b1368898cd3f6ca0c
 
 ###
 
-# Get all comments for a post
-GET http://localhost:3000/comments/post/67471fa41368898cd3f6ca0e
+# Get a comment by ID
+GET http://localhost:3000/comments/6744dbb5d21f91924e640d53
 
 ###
 
 # Delete a comment by ID
-DELETE http://localhost:3000/comments/1
+DELETE http://localhost:3000/comments/6744dbb5d21f91924e640d53
 
 ###

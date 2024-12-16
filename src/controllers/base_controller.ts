@@ -11,7 +11,7 @@ class BaseController<T> {
         const filter = req.query.sender;
         try {
             if (filter) {
-                const item = await this.model.find({ owner: filter });
+                const item = await this.model.find({ sender: filter });
                 res.send(item);
             } else {
                 const items = await this.model.find();

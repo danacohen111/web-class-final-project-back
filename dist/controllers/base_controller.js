@@ -15,10 +15,10 @@ class BaseController {
     }
     getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const filter = req.query.owner;
+            const filter = req.query.sender;
             try {
                 if (filter) {
-                    const item = yield this.model.find({ owner: filter });
+                    const item = yield this.model.find({ sender: filter });
                     res.send(item);
                 }
                 else {

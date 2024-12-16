@@ -10,7 +10,7 @@ const postSchema = new mongoose_1.default.Schema({
         required: true,
     },
     content: String,
-    senderID: {
+    sender: {
         type: String,
         required: true,
     }

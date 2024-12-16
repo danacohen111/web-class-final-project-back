@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const posts_controller_1 = __importDefault(require("../controllers/posts_controller"));
 const router = express_1.default.Router();
-//router.put("/:postId", postsController.getPostsBySender.bind(postsController));
+router.get("/sender", posts_controller_1.default.getPostsBySender.bind(posts_controller_1.default));
 router.get("/", posts_controller_1.default.getAll.bind(posts_controller_1.default));
 router.get("/:id", posts_controller_1.default.getById.bind(posts_controller_1.default));
 router.post("/", posts_controller_1.default.create.bind(posts_controller_1.default));

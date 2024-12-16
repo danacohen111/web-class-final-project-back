@@ -20,9 +20,9 @@ class PostsController extends base_controller_1.default {
     }
     getPostsBySender(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const senderId = req.params.senderId;
+            const senderId = req.params.sender;
             try {
-                const posts = yield posts_model_1.default.find({ senderID: senderId });
+                const posts = yield posts_model_1.default.find({ sender: senderId });
                 res.status(200).send(posts);
             }
             catch (error) {

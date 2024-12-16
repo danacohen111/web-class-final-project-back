@@ -8,7 +8,7 @@ const comments_controller_1 = __importDefault(require("../controllers/comments_c
 const router = express_1.default.Router();
 router.get("/", comments_controller_1.default.getAll.bind(comments_controller_1.default));
 //Change route to fit the api
-//router.get("/", commentsController.getAllCommentsForPost.bind(commentsController));
+//router.get("/post", commentsController.getAllCommentsForPost.bind(commentsController));
 router.get("/:id", comments_controller_1.default.getById.bind(comments_controller_1.default));
 router.post("/", comments_controller_1.default.create.bind(comments_controller_1.default));
 router.delete("/:id", comments_controller_1.default.deleteItem.bind(comments_controller_1.default));

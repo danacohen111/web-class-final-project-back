@@ -20,7 +20,7 @@ class CommentsController extends base_controller_1.default {
     }
     getAllCommentsForPost(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const postId = req.query.postId;
+            const postId = req.params.post;
             if (!postId) {
                 return res.status(400).send('Post ID is required');
             }
