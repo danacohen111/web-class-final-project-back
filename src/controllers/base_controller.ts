@@ -46,6 +46,20 @@ class BaseController<T> {
             res.status(400).send(error);
         }
     };
+    
+    async updateItem(req: Request, res: Response) {
+        const id = req.params.id;
+        const updateData = req.body;
+        try {
+            const updatedItem = await this.model.findByIdAndUpdate(id, updateData, { new: true });
+            if (!updatedItem) {
+                return res.status(404).send({ message: 'Item not found' });
+            }
+            res.status(200).send(updatedItem);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    };
 
     async deleteItem(req: Request, res: Response) {
         const id = req.params.id;
