@@ -62,3 +62,30 @@ GET http://localhost:3000/comments/675066550be685c196ef9460
 
 DELETE http://localhost:3000/comments/6750605d5be7df859450d23c 
 
+###
+
+POST http://localhost:3000/users Content-Type: application/json
+
+{
+"username": "Ilana", "email": "ilana@gmail.com", "password": "ilana"
+}
+
+###
+
+PUT http://localhost:3000/users/67507f6df8656133a81c750a Content-Type: application/json
+
+{
+"email": "new@gmail.com"
+}
+
+###
+
+GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/comments?userId=67507f6df8656133a81c750a
+
+###
+
+DELETE http://localhost:3000/users/67507f6df8656133a81c750a
+
