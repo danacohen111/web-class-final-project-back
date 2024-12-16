@@ -121,7 +121,7 @@ GET http://localhost:3000/users/67507eb8f8656133a81c74fc
 ###
 
 # Delete user by ID
-DELETE http://localhost:3000/users/6744dbb5d21f91924e640d53
+DELETE http://localhost:3000/users/67507eb8f8656133a81c74fc
 
 ###
 
