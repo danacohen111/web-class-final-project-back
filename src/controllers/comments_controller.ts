@@ -1,7 +1,11 @@
-const CommentModel = require('../models/comments_model');
-const PostModel = require("../models/posts_model");
+import CommentModel, {IComment} from '../models/comments_model';
+import PostModel from "../models/posts_model";
+import { Request, Response } from 'express';
+import BaseController from './base_controller';
 
-const createComment = async (req, res) => {
+const commentsController = new BaseController<IComment>(CommentModel);
+
+const createComment = async (req: Request, res: Response) => {
     const { postId, sender, content } = req.body;
   
     try {
@@ -18,12 +22,15 @@ const createComment = async (req, res) => {
   
       res.status(201).send(comment);
     } catch (error) {
-      res.status(400).send(error.message);
+      if (error instanceof Error) {
+        res.status(400).send(error.message);
+      } else {
+        res.status(400).send("An unknown error occurred");
+      }
     }
 };
-
   
-const updateComment = async (req, res) => {
+const updateComment = async (req: Request, res: Response) => {
     const commentId = req.params.id;
     const { content } = req.body;
 
@@ -35,7 +42,7 @@ const updateComment = async (req, res) => {
       const comment = await CommentModel.findById(commentId);
 
       if (!comment) {
-        return res.status(404).json({ error: "Comment not found" });
+        return res.status(404).send("Comment not found");
       }
 
       comment.content = content;
@@ -43,12 +50,11 @@ const updateComment = async (req, res) => {
 
       res.json(comment);
     } catch (error) {
-      res.status(400).json({ error: error.message });
+      res.status(400).send(error);
     }
 };
-
   
-const deleteComment = async (req, res) => {
+const deleteComment = async (req: Request, res: Response) => {
     const commentId = req.params.id;
   
     try {
@@ -62,12 +68,12 @@ const deleteComment = async (req, res) => {
   
       res.send("Comment deleted successfully");
     } catch (error) {
-      res.status(400).send(error.message);
+      res.status(400).send(error);
     }
   };
 
+const getAllCommentsForPost = async (req: Request, res: Response) => {
   
-const getAllCommentsForPost = async (req, res) => {
 const postId = req.query.postId;
   if (!postId) {
         return res.status(400).send('Post ID is required');
@@ -82,11 +88,12 @@ const postId = req.query.postId;
   
       res.send(comments);
     } catch (error) {
-      res.status(400).send(error.message);
+      res.status(400).send(error);
     }
-  };
+};
 
-const getCommentById = async (req, res) => {
+const getCommentById = async (req: Request, res: Response) => {
+
     const { id } = req.params;
 
     if (!id) {
@@ -102,20 +109,21 @@ const getCommentById = async (req, res) => {
   
       res.status(200).json(comment);
     } catch (error) {
-      res.status(400).send(error.message);
+      res.status(400).send(error);
     }
-  };
+};
 
-  const getAllComments = async (req, res) => {
+const getAllComments = async (req: Request, res: Response) => {
+
     try {
         const comments = await CommentModel.find();
         res.status(200).json(comments);
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).send(error);
     }
 };
+const getComments = async (req: Request, res: Response) => {
 
-const getComments = async (req, res) => {
     const { id } = req.params;
     const { postId } = req.query;
 
@@ -130,9 +138,4 @@ const getComments = async (req, res) => {
     return getAllComments(req, res);
 };
   
-  module.exports = {
-    createComment,
-    updateComment,
-    deleteComment,
-    getComments
-  };
+  export default commentsController
