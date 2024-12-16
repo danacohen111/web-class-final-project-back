@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/", usersController.create.bind(usersController));
 
-router.put("/:userId", usersController.update.bind(usersController));
+router.put("/:userId", usersController.updateItem.bind(usersController));
 
 router.get("/:userId", usersController.getById.bind(usersController));
 
