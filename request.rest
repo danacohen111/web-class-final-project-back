@@ -1,92 +1,67 @@
+### Posts API
 
-POST http://localhost:3000/post
+# Create a new post
+POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
     "title": "New post",
-    "senderID": "331",
+    "sender": "3311111111",
     "content": "Test"
 }
 
 ###
 
-GET http://localhost:3000/post
+# Get all posts
+GET http://localhost:3000/posts
 
 ###
 
-GET http://localhost:3000/post/67471fa41368898cd3f6ca0e
-
-
-###
-
-GET http://localhost:3000/post?sender=333
-
-###
-PUT http://localhost:3000/post/67471fa41368898cd3f6ca0e
-Content-Type: application/json
-
-{
-    "title": "Updated again!",
-    "content": "Updated content!!"
-}
+# Get a post by ID
+GET http://localhost:3000/posts/67471fa41368898cd3f6ca0e
 
 ###
 
+# Get posts by sender ID
+GET http://localhost:3000/posts?sender=3311111111
+
+###
+
+# Delete a post by ID
+DELETE http://localhost:3000/posts/67471f9b1368898cd3f6ca0c
+
+###
+
+### Comments API
+
+# Create a new comment
 POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "67471f9b1368898cd3f6ca0c",  
-  "sender": "Ilana Belokon",
-  "content": "Great post! I really enjoyed reading it."
+    "post": "67471fa41368898cd3f6ca0e",
+    "content": "This is a comment",
+    "sender": "user123"
 }
 
 ###
 
-PUT http://localhost:3000/comments/675066550be685c196ef9460
-Content-Type: application/json
-
-{
-  "content": "Good job"
-}
+# Get all comments
+GET http://localhost:3000/comments
 
 ###
 
-GET http://localhost:3000/comments?postId=67471f9b1368898cd3f6ca0c
+# Get all comments for a post
+GET http://localhost:3000/comments?post=67471f9b1368898cd3f6ca0c
 
 ###
 
-GET http://localhost:3000/comments/675066550be685c196ef9460
+# Get a comment by ID
+GET http://localhost:3000/comments/6744dbb5d21f91924e640d53
 
 ###
 
-DELETE http://localhost:3000/comments/6750605d5be7df859450d23c 
+# Delete a comment by ID
+DELETE http://localhost:3000/comments/6744dbb5d21f91924e640d53
 
 ###
-
-POST http://localhost:3000/users Content-Type: application/json
-
-{
-"username": "Ilana", "email": "ilana@gmail.com", "password": "ilana"
-}
-
-###
-
-PUT http://localhost:3000/users/67507f6df8656133a81c750a Content-Type: application/json
-
-{
-"email": "new@gmail.com"
-}
-
-###
-
-GET http://localhost:3000/users
-
-###
-
-GET http://localhost:3000/comments?userId=67507f6df8656133a81c750a
-
-###
-
-DELETE http://localhost:3000/users/67507f6df8656133a81c750a
-

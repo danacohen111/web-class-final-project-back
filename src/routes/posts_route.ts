@@ -3,8 +3,6 @@ import postsController from "../controllers/posts_controller";
 
 const router = express.Router();
 
-//router.put("/:postId", postsController.getPostsBySender.bind(postsController));
-
 router.get("/", postsController.getAll.bind(postsController));
 
 router.get("/:id", postsController.getById.bind(postsController));
