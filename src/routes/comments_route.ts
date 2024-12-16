@@ -2,14 +2,16 @@ import express from "express";
 import commentsController from '../controllers/comments_controller';
 
 const router = express.Router();
-router.post('/', commentsController.createComment.bind(commentsController));
 
-router.put('/:id', commentsController.updateComment.bind(commentsController));
+router.get("/", commentsController.getAll.bind(commentsController));
 
-router.delete('/:id', commentsController.deleteComment.bind(commentsController));
+//Change route to fit the api
+//router.get("/", commentsController.getAllCommentsForPost.bind(commentsController));
 
-router.get('/', commentsController.getComments.bind(commentsController));
+router.get("/:id", commentsController.getById.bind(commentsController));
 
-router.get('/:id', commentsController.getComments.bind(commentsController));
+router.post("/", commentsController.create.bind(commentsController));
+
+router.delete("/:id", commentsController.deleteItem.bind(commentsController));
 
 export default router;

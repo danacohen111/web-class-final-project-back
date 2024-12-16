@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon ./src/app.ts",
+    "start": "tsc && node ./dist/app.js",
     "test": "jest --detectOpenHandles --forceExit"
   },
   "author": "Dana & Ilana",
