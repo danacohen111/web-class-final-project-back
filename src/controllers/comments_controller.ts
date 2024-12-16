@@ -9,7 +9,7 @@ class CommentsController extends BaseController<IComment> {
 
   async getAllCommentsForPost(req: Request, res: Response) {
   
-    const postId = req.query.postId;
+    const postId = req.params.post;
       if (!postId) {
             return res.status(400).send('Post ID is required');
         }

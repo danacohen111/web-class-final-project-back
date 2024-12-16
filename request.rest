@@ -18,7 +18,7 @@ GET http://localhost:3000/posts
 ###
 
 # Get a post by ID
-GET http://localhost:3000/posts/67471f9b1368898cd3f6ca0c
+GET http://localhost:3000/posts/67471fa41368898cd3f6ca0e
 
 ###
 
@@ -39,9 +39,9 @@ POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-    "postId": "67471fa41368898cd3f6ca0e",
+    "post": "67471fa41368898cd3f6ca0e",
     "content": "This is a comment",
-    "owner": "user123"
+    "sender": "user123"
 }
 
 ###
@@ -52,12 +52,12 @@ GET http://localhost:3000/comments
 ###
 
 # Get a comment by ID
-GET http://localhost:3000/comments/1
+GET http://localhost:3000/comments/6750663a0be685c196ef945c
 
 ###
 
 # Get all comments for a post
-GET http://localhost:3000/comments/post/1
+GET http://localhost:3000/comments/post/67471fa41368898cd3f6ca0e
 
 ###
 
