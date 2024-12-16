@@ -83,6 +83,7 @@ PUT http://localhost:3000/users/67507f6df8656133a81c750a Content-Type: applicati
 GET http://localhost:3000/users
 
 ###
+
 GET http://localhost:3000/comments?userId=67507f6df8656133a81c750a
 
 ###
