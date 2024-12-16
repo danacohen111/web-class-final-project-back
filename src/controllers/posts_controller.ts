@@ -1,25 +1,30 @@
-const PostModel = require("../models/posts_model");
+import { Request, Response } from 'express';
+import BaseController from './base_controller';
+import PostModel, { IPost } from '../models/posts_model';
 
-const createPost = async (req, res) => {
+const postsController = new BaseController<IPost>(PostModel);
+
+const createPost = async (req: Request, res: Response) => {
     const postBody = req.body;
     try {
       const post = await PostModel.create(postBody);
       res.status(201).send(post);
     } catch (error) {
-      res.status(400).send(error.message);
+      res.status(400).send(error);
     }
-  };
+};
 
-const getPostsBySender = async (senderId, res) => {
+const getPostsBySender = async (senderId: string, res: Response) => {
   try {
     const posts = await PostModel.find({ senderID: senderId });
     res.status(200).send(posts);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
   }
 };
 
-const getPostById = async (req, res) => {
+const getPostById = async (req: Request, res: Response) => {
+
   const postId = req.params.id;
   try {
     const post = await PostModel.findById(postId);
@@ -29,12 +34,14 @@ const getPostById = async (req, res) => {
       res.status(404).send("Post not found");
     }
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
   }
 };
 
-const getAllPosts = async (req, res) => {
-  const senderId = req.query.sender;
+const getAllPosts = async (req: Request, res: Response) => {
+
+  const senderId:any = req.query.sender;
+
   if (senderId) {
     return getPostsBySender(senderId, res);
   }
@@ -42,11 +49,12 @@ const getAllPosts = async (req, res) => {
     const posts = await PostModel.find();
     res.status(200).send(posts);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
   }
 };
 
-const updatePost = async (req, res) => {
+const updatePost = async (req: Request, res: Response) => {
+
   const { postId } = req.params;
   const { title, content } = req.body;
 
@@ -71,14 +79,8 @@ const updatePost = async (req, res) => {
 
     res.status(200).send(post);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
   }
 };
 
-module.exports = {
-    createPost,
-    getAllPosts,
-    updatePost,
-    getPostById,
-    getPostsBySender
-};
+export default postsController

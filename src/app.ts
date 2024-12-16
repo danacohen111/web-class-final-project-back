@@ -1,16 +1,22 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+
+dotenv.config();
 const app = express();
-const dotenv = require("dotenv").config();
 const port = process.env.PORT;
 const connectionString = process.env.DB_CONNECT;
 
-const mongoose = require("mongoose");
-mongoose.connect(connectionString);
+if (connectionString) {
+  mongoose.connect(connectionString);
+} else {
+  console.error("Database connection string is not defined");
+}
 const db = mongoose.connection;
-db.on("error", (error) => console.error(error));
+db.on("error", (error: unknown) => console.error(error));
 db.once("open", () => console.log("Connected to database"));
 
-const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
