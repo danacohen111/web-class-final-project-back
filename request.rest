@@ -125,4 +125,48 @@ DELETE http://localhost:3000/users/67507eb8f8656133a81c74fc
 
 ###
 
+### Auth API
 
+# Register a new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "ilana111",
+    "password": "password123",
+    "email": "newuser1@example.com"
+}
+
+###
+
+# Login a user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "newuser1@example.com",
+    "password": "password123"
+}
+
+###
+
+
+# Logout a user
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNDkzYTMxZGU0ODI5MTFiYTY4YzMiLCJyYW5kIjowLjUxMTk5MDU0ODI3NjA5NDIsImlhdCI6MTczNDM2NDE2OCwiZXhwIjoxNzM0OTY4OTY4fQ.4AryMLnUWY-HWMpL0qWHDuSw2GG9QwJBeX_Epas7PJE"
+}
+
+###
+
+# Refresh token
+POST http://localhost:3000/auth/refresh
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNDkzYTMxZGU0ODI5MTFiYTY4YzMiLCJyYW5kIjowLjAxMjU5NDQxNjE4MTMxMzg1LCJpYXQiOjE3MzQzNjQwODIsImV4cCI6MTczNDk2ODg4Mn0.qBi4ZERmAMu3IbbaK8vPu730rsZTNecPbF-uFhOzdQo"
+}
+
+###

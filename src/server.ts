@@ -6,7 +6,7 @@ import express, { Express } from "express";
 import postsRoute from "./routes/posts_route";
 import commentsRoute from "./routes/comments_route";
 import usersRoute from "./routes/users_route";
-import auth_routes from "./routes/auth_routes";
+import auth_routes from "./routes/auth_route";
 
 const app = express();
 app.use(bodyParser.json());
