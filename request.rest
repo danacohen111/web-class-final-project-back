@@ -132,9 +132,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "ilana111",
+    "username": "ilana11121",
     "password": "password123",
-    "email": "newuser1@example.com"
+    "email": "newuser1111@example.com"
 }
 
 ###
@@ -144,7 +144,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "email": "newuser1@example.com",
+    "email": "newuser1111@example.com",
     "password": "password123"
 }
 
@@ -156,7 +156,7 @@ POST http://localhost:3000/auth/logout
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNDkzYTMxZGU0ODI5MTFiYTY4YzMiLCJyYW5kIjowLjUxMTk5MDU0ODI3NjA5NDIsImlhdCI6MTczNDM2NDE2OCwiZXhwIjoxNzM0OTY4OTY4fQ.4AryMLnUWY-HWMpL0qWHDuSw2GG9QwJBeX_Epas7PJE"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNTE1ODMxZGU0ODI5MTFiYTY4ZTUiLCJyYW5kIjowLjk3NTc4ODM1MzM0MDc2OSwiaWF0IjoxNzM0MzY1NTQyLCJleHAiOjE3MzQ5NzAzNDJ9.o5MbziH1KsPcQgXCFTasNiIkTcSITpAKeJ5cumLVdlI"
 }
 
 ###
@@ -166,7 +166,7 @@ POST http://localhost:3000/auth/refresh
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNDkzYTMxZGU0ODI5MTFiYTY4YzMiLCJyYW5kIjowLjAxMjU5NDQxNjE4MTMxMzg1LCJpYXQiOjE3MzQzNjQwODIsImV4cCI6MTczNDk2ODg4Mn0.qBi4ZERmAMu3IbbaK8vPu730rsZTNecPbF-uFhOzdQo"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNTE1ODMxZGU0ODI5MTFiYTY4ZTUiLCJyYW5kIjowLjIxNzI1NjA2Nzc3MDg3OTQ3LCJpYXQiOjE3MzQzNjU2NjcsImV4cCI6MTczNDk3MDQ2N30.BHoiqhF39aDO0nWuOTxT8CmC72u_3f85gU4dzJ9s_VM"
 }
 
 ###
