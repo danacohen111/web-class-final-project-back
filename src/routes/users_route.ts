@@ -11,6 +11,6 @@ router.get("/:id", usersController.getById.bind(usersController));
 
 router.get("/", usersController.getAll.bind(usersController));
 
-router.delete("/", usersController.deleteItem.bind(usersController));
+router.delete("/:id", usersController.deleteItem.bind(usersController));
 
 export default router;
