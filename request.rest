@@ -12,6 +12,16 @@ Content-Type: application/json
 
 ###
 
+# update a new post
+PUT http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "content": "Test1"
+}
+
+###
+
 # Get all posts
 GET http://localhost:3000/posts
 
@@ -46,6 +56,16 @@ Content-Type: application/json
 
 ###
 
+# Create a new comment
+PUT http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "content": "This is a comment 1"
+}
+
+###
+
 # Get all comments
 GET http://localhost:3000/comments
 
@@ -65,3 +85,44 @@ GET http://localhost:3000/comments/6744dbb5d21f91924e640d53
 DELETE http://localhost:3000/comments/6744dbb5d21f91924e640d53
 
 ###
+
+### Users API
+
+# Create a new user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "ilana2",
+    "password": "ilana2",
+    "email": "ilana2"
+}
+
+###
+
+# update a user
+PUT http://localhost:3000/users/67603d9b083e5c78cfbdb5cf
+Content-Type: application/json
+
+{
+    "email": "user123"
+}
+
+###
+
+# Get all users
+GET http://localhost:3000/users
+
+###
+
+# Get user by ID
+GET http://localhost:3000/users/67507eb8f8656133a81c74fc
+
+###
+
+# Delete user by ID
+DELETE http://localhost:3000/users/67507eb8f8656133a81c74fc
+
+###
+
+
