@@ -20,7 +20,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    refreshTokens: {
+        type: [String],
+        default: [],
+  }
 });
 
 const userModel = mongoose.model<IUser>("Users", userSchema);

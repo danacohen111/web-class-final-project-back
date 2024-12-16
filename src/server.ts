@@ -6,6 +6,7 @@ import express, { Express } from "express";
 import postsRoute from "./routes/posts_route";
 import commentsRoute from "./routes/comments_route";
 import usersRoute from "./routes/users_route";
+import auth_routes from "./routes/auth_routes";
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/posts", postsRoute);
 app.use("/comments", commentsRoute);
 app.use("/users", usersRoute);
+app.use("/auth", auth_routes);
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
