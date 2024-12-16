@@ -93,33 +93,35 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "ilana",
-    "password": "ilana",
-    "email": "ilana"
+    "username": "ilana1",
+    "password": "ilana1",
+    "email": "ilana1"
 }
 
 ###
 
 # update a user
-PUT http://localhost:3000/users
+PUT http://localhost:3000/users/67603b60083e5c78cfbdb5b9
 Content-Type: application/json
 
 {
     "email": "user123"
 }
 
+###
+
 # Get all users
-GET http://localhost:3000/comments
+GET http://localhost:3000/users
 
 ###
 
 # Get user by ID
-GET http://localhost:3000/comments/6744dbb5d21f91924e640d53
+GET http://localhost:3000/users/67507eb8f8656133a81c74fc
 
 ###
 
 # Delete user by ID
-DELETE http://localhost:3000/comments/6744dbb5d21f91924e640d53
+DELETE http://localhost:3000/users/6744dbb5d21f91924e640d53
 
 ###
 
