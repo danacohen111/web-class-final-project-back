@@ -93,15 +93,15 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "ilana1",
-    "password": "ilana1",
-    "email": "ilana1"
+    "username": "ilana2",
+    "password": "ilana2",
+    "email": "ilana2"
 }
 
 ###
 
 # update a user
-PUT http://localhost:3000/users/67603b60083e5c78cfbdb5b9
+PUT http://localhost:3000/users/67603d9b083e5c78cfbdb5cf
 Content-Type: application/json
 
 {
