@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/app.ts",
     "start": "tsc && node ./dist/app.js",
-    "test": "tsc && jest --detectOpenHandles --coverage --forceExit --runInBand"
+    "test": "tsc && jest --detectOpenHandles --coverage --forceExit --runInBand",
+    "test:comments": "jest src/tests/comments.test.ts"
   },
   "author": "Dana & Ilana",
   "license": "ISC",
