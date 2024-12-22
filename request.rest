@@ -3,7 +3,8 @@
 # Create a new post
 POST http://localhost:3000/posts
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNTE1ODMxZGU0ODI5MTFiYTY4ZTUiLCJyYW5kIjowLjIxNzI1NjA2Nzc3MDg3OTQ3LCJpYXQiOjE3MzQzNjU2NjcsImV4cCI6MTczNDM2NTY3MH0.BCUXDJZ7BWtd7ihyn4bKjIiqlG013m61gQ97sEHz4k0
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjQ1NTQ1OTU2OTA0MTI5OTI1LCJpYXQiOjE3MzQ3MDA0MDMsImV4cCI6MTczNDk1OTYwM30.lli7WJPxwnXpCaEVEakqb4tqT40qBmm0EmHkGMZDxtk
+
 {
     "title": "New post",
     "sender": "3311111111",
@@ -13,8 +14,9 @@ Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNTE1ODMx
 ###
 
 # update a new post
-PUT http://localhost:3000/posts
+PUT http://localhost:3000/posts/67471fa41368898cd3f6ca0e
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjQ1NTQ1OTU2OTA0MTI5OTI1LCJpYXQiOjE3MzQ3MDA0MDMsImV4cCI6MTczNDk1OTYwM30.lli7WJPxwnXpCaEVEakqb4tqT40qBmm0EmHkGMZDxtk
 
 {
     "content": "Test1"
@@ -38,7 +40,8 @@ GET http://localhost:3000/posts?sender=3311111111
 ###
 
 # Delete a post by ID
-DELETE http://localhost:3000/posts/67471f9b1368898cd3f6ca0c
+DELETE http://localhost:3000/posts/67471fa41368898cd3f6ca0e
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjQ1NTQ1OTU2OTA0MTI5OTI1LCJpYXQiOjE3MzQ3MDA0MDMsImV4cCI6MTczNDk1OTYwM30.lli7WJPxwnXpCaEVEakqb4tqT40qBmm0EmHkGMZDxtk
 
 ###
 
@@ -47,18 +50,20 @@ DELETE http://localhost:3000/posts/67471f9b1368898cd3f6ca0c
 # Create a new comment
 POST http://localhost:3000/comments
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjQ1NTQ1OTU2OTA0MTI5OTI1LCJpYXQiOjE3MzQ3MDA0MDMsImV4cCI6MTczNDk1OTYwM30.lli7WJPxwnXpCaEVEakqb4tqT40qBmm0EmHkGMZDxtk
 
 {
     "post": "67471fa41368898cd3f6ca0e",
     "content": "This is a comment",
-    "sender": "user123"
+    "sender": "user11123"
 }
 
 ###
 
-# Create a new comment
-PUT http://localhost:3000/comments
+# Update a comment
+PUT http://localhost:3000/comments/6767e9cc515a55a6e985e4da
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjQ1NTQ1OTU2OTA0MTI5OTI1LCJpYXQiOjE3MzQ3MDA0MDMsImV4cCI6MTczNDk1OTYwM30.lli7WJPxwnXpCaEVEakqb4tqT40qBmm0EmHkGMZDxtk
 
 {
     "content": "This is a comment 1"
@@ -77,14 +82,14 @@ GET http://localhost:3000/comments?post=67471f9b1368898cd3f6ca0c
 ###
 
 # Get a comment by ID
-GET http://localhost:3000/comments/6744dbb5d21f91924e640d53
+GET http://localhost:3000/comments/6767e9cc515a55a6e985e4da
 
 ###
 
 # Delete a comment by ID
-DELETE http://localhost:3000/comments/6744dbb5d21f91924e640d53
+DELETE http://localhost:3000/comments/6767e9cc515a55a6e985e4da
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjQ1NTQ1OTU2OTA0MTI5OTI1LCJpYXQiOjE3MzQ3MDA0MDMsImV4cCI6MTczNDk1OTYwM30.lli7WJPxwnXpCaEVEakqb4tqT40qBmm0EmHkGMZDxtk
 
-###
 
 ### Users API
 
@@ -132,9 +137,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "ilana11121",
+    "username": "Dana11",
     "password": "password123",
-    "email": "newuser1111@example.com"
+    "email": "Dana111@example.com"
 }
 
 ###
@@ -144,7 +149,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "email": "newuser1111@example.com",
+    "email": "Dana111@example.com",
     "password": "password123"
 }
 
@@ -166,7 +171,7 @@ POST http://localhost:3000/auth/refresh
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwNTE1ODMxZGU0ODI5MTFiYTY4ZTUiLCJyYW5kIjowLjIxNzI1NjA2Nzc3MDg3OTQ3LCJpYXQiOjE3MzQzNjU2NjcsImV4cCI6MTczNDk3MDQ2N30.BHoiqhF39aDO0nWuOTxT8CmC72u_3f85gU4dzJ9s_VM"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzY1NmMxNDk1YTdjOWM5YTJjNzYyODciLCJyYW5kIjowLjgyMjgzOTUzMjg2NDU4MzIsImlhdCI6MTczNDcwMDMxMywiZXhwIjoxNzM1MzA1MTEzfQ.pOh1lvIYQowvbUdlnR-7Eonh5kyCleox_Bo-yCpE8x8"
 }
 
 ###
