@@ -41,8 +41,16 @@ const router = express.Router();
  *                   type: string
  *                 email:
  *                   type: string
+ *                 password:
+ *                   type: string
+ *                 refreshTokens:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
+ *       400:
+ *         description: Bad request
  *       500:
  *         description: Internal server error
  */
@@ -87,6 +95,12 @@ router.post("/", usersController.create.bind(usersController));
  *                   type: string
  *                 email:
  *                   type: string
+ *                 password:
+ *                   type: string
+ *                 refreshTokens:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
  *       404:
@@ -122,6 +136,12 @@ router.put("/:id", usersController.updateItem.bind(usersController));
  *                   type: string
  *                 email:
  *                   type: string
+ *                 password:
+ *                   type: string
+ *                 refreshTokens:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
  *       404:
@@ -152,6 +172,12 @@ router.get("/:id", usersController.getById.bind(usersController));
  *                     type: string
  *                   email:
  *                     type: string
+ *                   password:
+ *                     type: string
+ *                   refreshTokens:
+ *                     type: array
+ *                     items:
+ *                       type: string
  *                   _id:
  *                     type: string
  *       500:
@@ -185,6 +211,12 @@ router.get("/", usersController.getAll.bind(usersController));
  *                   type: string
  *                 email:
  *                   type: string
+ *                 password:
+ *                   type: string
+ *                 refreshTokens:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
  *       404:

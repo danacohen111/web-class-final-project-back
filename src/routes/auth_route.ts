@@ -41,8 +41,16 @@ const router = express.Router();
  *                   type: string
  *                 email:
  *                   type: string
+ *                 password:
+ *                   type: string
+ *                 refreshTokens:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
+ *       400:
+ *         description: Bad request
  *       500:
  *         description: Internal server error
  */
@@ -53,7 +61,7 @@ router.post("/register", authController.register);
  * @swagger
  * /auth/login:
  *   post:
- *     summary: Login a user
+ *     summary: login a new user
  *     tags: [Auth]
  *     requestBody:
  *       required: true
@@ -66,18 +74,26 @@ router.post("/register", authController.register);
  *                 type: string
  *               password:
  *                 type: string
+ *               email:
+ *                 type: string
  *     responses:
- *       200:
- *         description: The logged-in user
+ *       201:
+ *         description: The logged in user
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 token:
+ *                 refreshTokens:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 accessToken:
  *                   type: string
- *                 refreshToken:
+ *                 _id:
  *                   type: string
+ *       400:
+ *         description: Bad request
  *       500:
  *         description: Internal server error
  */
@@ -101,11 +117,7 @@ router.post("/login", authController.login);
  *                 type: string
  *     responses:
  *       200:
- *         description: The logged-out user
- *         content:
- *           application/json:
- *             schema:
- *               type: object
+ *         description: logged out
  *       500:
  *         description: Internal server error
  */
@@ -135,10 +147,12 @@ router.post("/logout", authController.logout);
  *             schema:
  *               type: object
  *               properties:
- *                 token:
+ *                 accessToken:
  *                   type: string
  *                 refreshToken:
  *                   type: string
+ *       400:
+ *         description: Bad request
  *       500:
  *         description: Internal server error
  */

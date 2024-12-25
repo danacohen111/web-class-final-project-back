@@ -42,6 +42,12 @@ const router = express.Router();
  *                     type: string
  *                   _id:
  *                     type: string
+ *                   createdAt:
+ *                     type: string
+ *                     format: date-time
+ *                   updatedAt:
+ *                     type: string
+ *                     format: date-time
  *       500:
  *         description: Internal server error
  */
@@ -77,6 +83,12 @@ router.get("/", commentsController.getAll.bind(commentsController));
  *                   type: string
  *                 _id:
  *                   type: string
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
  *       404:
  *         description: Comment not found
  *       500:
@@ -122,6 +134,13 @@ router.get("/:id", commentsController.getById.bind(commentsController));
  *                   type: string
  *                 _id:
  *                   type: string
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
+ * 
  *       401:
  *         description: Access denied
  *       500:
@@ -174,6 +193,12 @@ router.post("/", authMiddleware, commentsController.create.bind(commentsControll
  *                   type: string
  *                 _id:
  *                   type: string
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
  *       401:
  *         description: Access denied
  *       404:
@@ -215,6 +240,12 @@ router.put("/:id", authMiddleware, commentsController.updateItem.bind(commentsCo
  *                   type: string
  *                 _id:
  *                   type: string
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
  *       401:
  *         description: Access denied
  *       404:

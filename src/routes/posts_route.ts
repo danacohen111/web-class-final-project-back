@@ -5,39 +5,39 @@ import { authMiddleware } from "../controllers/auth_controller";
 const router = express.Router();
 
 /**
-* @swagger
-* tags:
-*   name: Posts
-*   description: The Posts API
-*/
-/**
-* @swagger
-* /posts:
-*   get:
-*     summary: Get all posts
-*     description: Retrieve all posts
-*     tags: [Posts]
-*     responses:
-*       200:
-*         description: Posts retrieved successfully
-*         content:
-*           application/json:
-*             schema:
-*               type: array
-*               items:
-*                 type: object
-*                 properties:
-*                   title:
-*                     type: string
-*                   content:
-*                     type: string
-*                   sender:
-*                     type: string
-*                   _id:
-*                     type: string
-*       500:
-*         description: Internal server error
-*/
+ * @swagger
+ * /posts:
+ *   get:
+ *     summary: Get all posts
+ *     description: Retrieve all posts or filter by sender
+ *     tags: [Posts]
+ *     parameters:
+ *       - in: query
+ *         name: sender
+ *         schema:
+ *           type: string
+ *         description: The ID of the sender to filter posts by
+ *     responses:
+ *       200:
+ *         description: Posts retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   title:
+ *                     type: string
+ *                   content:
+ *                     type: string
+ *                   senderID:
+ *                     type: string
+ *                   _id:
+ *                     type: string
+ *       500:
+ *         description: Internal server error
+ */
 
 router.get("/", postsController.getAll.bind(postsController));
 
@@ -67,7 +67,7 @@ router.get("/", postsController.getAll.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 senderID:
+ *                 sender:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -99,7 +99,7 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 type: string
  *               content:
  *                 type: string
- *               senderID:
+ *               sender:
  *                 type: string
  *     responses:
  *       201:
@@ -113,7 +113,7 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 senderID:
+ *                 sender:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -152,7 +152,7 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                 type: string
  *               content:
  *                 type: string
- *               senderID:
+ *               sender:
  *                 type: string
  *     responses:
  *       200:
@@ -166,7 +166,7 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 senderID:
+ *                 sender:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -207,7 +207,7 @@ router.put("/:id", authMiddleware, postsController.updateItem.bind(postsControll
  *                 type: string
  *               content:
  *                 type: string
- *               senderID:
+ *               sender:
  *                 type: string
  *     responses:
  *       200:
@@ -221,7 +221,7 @@ router.put("/:id", authMiddleware, postsController.updateItem.bind(postsControll
  *                   type: string
  *                 content:
  *                   type: string
- *                 senderID:
+ *                 sender:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -252,20 +252,7 @@ router.put("/:id", authMiddleware, postsController.updateItem.bind(postsControll
  *         description: The post ID
  *     responses:
  *       200:
- *         description: Post deleted successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 title:
- *                   type: string
- *                 content:
- *                   type: string
- *                 senderID:
- *                   type: string
- *                 _id:
- *                   type: string
+ *         description: 
  *       401:
  *         description: Access denied
  *       404:
