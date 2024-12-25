@@ -81,20 +81,13 @@ router.get("/:id", postsController.getById.bind(postsController));
 
 /**
  * @swagger
- * /posts/{id}:
- *   put:
- *     summary: Update a post by ID
- *     description: Update a post by ID
+ * /posts:
+ *   post:
+ *     summary: Create a new post
+ *     description: Create a new post
  *     tags: [Posts]
  *     security:
  *       - bearerAuth: []
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: The post ID
  *     requestBody:
  *       required: true
  *       content:
@@ -109,8 +102,8 @@ router.get("/:id", postsController.getById.bind(postsController));
  *               senderID:
  *                 type: string
  *     responses:
- *       200:
- *         description: Post updated successfully
+ *       201:
+ *         description: Post created successfully
  *         content:
  *           application/json:
  *             schema:
@@ -126,8 +119,6 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                   type: string
  *       401:
  *         description: Access denied
- *       404:
- *         description: Post not found
  *       500:
  *         description: Internal server error
  */
