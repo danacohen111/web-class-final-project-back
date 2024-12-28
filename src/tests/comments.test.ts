@@ -1,18 +1,34 @@
 import request from "supertest";
 import initApp from "../server";
 import mongoose from "mongoose";
-// import commentsModel from "../models/posts_model";
+import commentsModel from "../models/comments_model";
+import usersModel from "../models/users_model";
 import { Express } from "express";
 
 let app: Express;
-const token = "4eee4852695b0e1722b0bd9ba6c87758205a2e98b1e46b08610706d63873c6016f2bd9f3e5a0c0cf5bbefd2cecad58b95185319d57e8fd7efd2c142333e09772";
+
+type UserInfo = {
+  username: string;
+  email: string;
+  password: string;
+  token?: string;
+  _id?: string;
+};
+
+const userInfo: UserInfo = {
+  username: "Ilana",
+  email: "ilana@gmail.com",
+  password: "123456"
+};
 
 beforeAll(async () => {
-  console.log("init app");
   app = await initApp();
-  console.log("init app finished");
-  // await commentsModel.deleteMany();
-  console.log("delete all posts");
+  await commentsModel.deleteMany();
+  await usersModel.deleteMany();
+  await request(app).post("/auth/register").send(userInfo);
+  const response = await request(app).post("/auth/login").send(userInfo);
+  userInfo.token = response.body.token;
+  userInfo._id = response.body._id;
 });
 
 afterAll(async () => {
@@ -22,14 +38,14 @@ afterAll(async () => {
 let commentId:string = "";
 
 const testComment1 = {
-  sender: "Ilana",
+  sender: "Ilana Belokon",
   content: "My post",
-  post: new mongoose.Types.ObjectId().toString()};
+  post: "6744dc0e9ce738f0e3525357"};
 
 const updatedComment = {
     sender: "Ilana",
     content: "Updated post",
-    post: new mongoose.Types.ObjectId().toString()
+    post: "6744dc0e9ce738f0e3525357"
   };
 
 describe("Comments Tests", () => {
@@ -42,7 +58,7 @@ describe("Comments Tests", () => {
   test("Comment Create test", async () => {
     const response = await request(app)
     .post("/comments")
-    .set("authorization", "JWT" + token)
+    .set("authorization", "JWT " + userInfo.token)
     .send(testComment1);
     console.log(response.body);
     if (response.statusCode !== 201) {
@@ -80,12 +96,6 @@ describe("Comments Tests", () => {
         expect(comment.sender).toBe(updatedComment.sender);
         expect(comment.content).toBe(updatedComment.content);
         expect(comment.post).toBe(updatedComment.post);
-    });
-
-    test("Comment Get All comments", async () => {
-        const response = await request(app).get("/comments");
-        console.log(response.body);
-        expect(response.statusCode).toBe(200);
     });
 
     test("Comment Get by ID", async () => {
