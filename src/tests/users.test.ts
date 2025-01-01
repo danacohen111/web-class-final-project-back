@@ -24,7 +24,7 @@ const usertest = {
     username: "ilana",
     email: "ilana2",
     password: "ilana2"
-  }
+}
 
 const updatedUserInfo = {
     username: "ilana_updated",
@@ -65,7 +65,7 @@ describe("Users Tests", () => {
         expect(Array.isArray(users)).toBe(true);
       });
 
-      test("Users Create test", async () => {
+  test("Users Create test", async () => {
         const response = await request(app)
           .post("/users")
           .send(usertest);
