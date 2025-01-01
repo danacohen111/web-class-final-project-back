@@ -147,10 +147,5 @@ describe("Posts Tests", () => {
 
     const response2 = await request(app).get("/posts/" + postId);
     expect(response2.statusCode).toBe(404);
-
-    const response3 = await request(app).get("/posts/" + postId);
-    const post = response3.body;
-    console.log(post);
-    expect(response3.statusCode).toBe(404);
   });
 });
