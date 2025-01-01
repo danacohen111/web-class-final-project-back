@@ -20,7 +20,7 @@ const userInfo: UserInfo = {
   password: "ilana2"
 }
 
-const usertest = {
+const userTest = {
     username: "ilana",
     email: "ilana2",
     password: "ilana2"
@@ -68,11 +68,11 @@ describe("Users Tests", () => {
   test("Users Create test", async () => {
         const response = await request(app)
           .post("/users")
-          .send(usertest);
+          .send(userTest);
         const user = response.body;
         expect(response.statusCode).toBe(201);
-        expect(user.username).toBe(usertest.username);
-        expect(user.email).toBe(usertest.email);
+        expect(user.username).toBe(userTest.username);
+        expect(user.email).toBe(userTest.email);
         userId = user._id;
       });
 
