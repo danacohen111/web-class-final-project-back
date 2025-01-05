@@ -99,16 +99,17 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "ilana21111",
-    "password": "ilana2",
-    "email": "ilana211"
+    "username": "ilana1",
+    "password": "ilana1",
+    "email": "ilana1"
 }
 
 ###
 
 # update a user
-PUT http://localhost:3000/users/67603d9b083e5c78cfbdb5cf
+PUT http://localhost:3000/users/677add404fcb51060647476d
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZGQ0MDRmY2I1MTA2MDY0NzQ3NmQiLCJyYW5kIjowLjI1NzU4NTcxMTExMjgzOTcsImlhdCI6MTczNjEwNTMxNiwiZXhwIjoxNzM2MzY0NTE2fQ.382_ODoKTkWc9qZHG5GNyWhHMqWD0LGeKvT-YSDXUSE
 
 {
     "email": "user123"
@@ -122,12 +123,13 @@ GET http://localhost:3000/users
 ###
 
 # Get user by ID
-GET http://localhost:3000/users/676045ac0da057c9593764d2
+GET http://localhost:3000/users/677add404fcb51060647476d
 
 ###
 
 # Delete user by ID
-DELETE http://localhost:3000/users/676045ac0da057c9593764d2
+DELETE http://localhost:3000/users/677add404fcb51060647476d
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZGQ0MDRmY2I1MTA2MDY0NzQ3NmQiLCJyYW5kIjowLjI1NzU4NTcxMTExMjgzOTcsImlhdCI6MTczNjEwNTMxNiwiZXhwIjoxNzM2MzY0NTE2fQ.382_ODoKTkWc9qZHG5GNyWhHMqWD0LGeKvT-YSDXUSE
 
 ###
 
@@ -138,9 +140,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "Dana11111111",
-    "password": "password123",
-    "email": "Dana111111111@example.com"
+    "username": "ilana11",
+    "password": "ilana11",
+    "email": "ilana11"
 }
 
 ###
@@ -150,8 +152,8 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "email": "Dana111@example.com",
-    "password": "password123"
+    "email": "ilana2211",
+    "password": "ilana22"
 }
 
 ###

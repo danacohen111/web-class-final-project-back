@@ -1,5 +1,6 @@
 import express from "express";
 import usersController from "../controllers/users_controller";
+import { authMiddleware } from "../controllers/auth_controller";
 
 const router = express.Router();
 
@@ -63,6 +64,8 @@ router.post("/", usersController.create.bind(usersController));
  *   put:
  *     summary: Update a user by ID
  *     tags: [Users]
+ *     security:
+ *       - bearerAuth: [] 
  *     parameters:
  *       - in: path
  *         name: id
@@ -109,7 +112,7 @@ router.post("/", usersController.create.bind(usersController));
  *         description: Internal server error
  */
 
-router.put("/:id", usersController.updateItem.bind(usersController));
+router.put("/:id", authMiddleware, usersController.updateItem.bind(usersController));
 
 /**
  * @swagger
@@ -192,6 +195,8 @@ router.get("/", usersController.getAll.bind(usersController));
  *   delete:
  *     summary: Delete a user by ID
  *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -225,6 +230,6 @@ router.get("/", usersController.getAll.bind(usersController));
  *         description: Internal server error
  */
 
-router.delete("/:id", usersController.deleteItem.bind(usersController));
+router.delete("/:id", authMiddleware, usersController.deleteItem.bind(usersController));
 
 export default router;

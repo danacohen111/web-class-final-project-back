@@ -2,7 +2,8 @@ import request from "supertest";
 import initApp from "../server";
 import mongoose from "mongoose";
 import { Express } from "express";
-import usersModel from "../models/users_model";
+import userModel from "../models/users_model";
+import postsModel from "../models/posts_model";
 
 let app: Express;
 
@@ -15,9 +16,9 @@ type UserInfo = {
 };
 
 const userTest: UserInfo = {
-    username: "ilana",
-    email: "ilana2",
-    password: "ilana2"
+    username: "ilana1",
+    email: "ilana1",
+    password: "ilana1"
 }
 
 const updatedUserInfo: UserInfo = {
@@ -34,7 +35,8 @@ let userId = "";
 
 beforeAll(async () => {
   app = await initApp();
-  await usersModel.deleteMany();
+  await postsModel.deleteMany();
+  await userModel.deleteMany();
 });
 
 afterAll(async () => {
@@ -57,7 +59,16 @@ describe("Users Tests", () => {
         expect(user.email).toBe(userTest.email);
         expect(user.password).toBe(userTest.password);
         userId = user._id;
-      });
+
+        await request(app).post("/auth/register").send(userTest);
+        const response1 = await request(app).post("/auth/login").send({
+          email: userTest.email,
+          password: userTest.password
+        });
+        userTest.token = response1.body.accessToken;
+        userTest._id = response1.body._id;
+        console.log("userme: " + userTest.token);
+    });
 
     test("Users Create double test fail", async () => {
         const response = await request(app).post("/users").send(userTest);
@@ -85,7 +96,9 @@ describe("Users Tests", () => {
   });
 
   test("Users Update test", async () => {
-    const response = await request(app).put("/users/" + userId).send(updatedUserInfo);
+    const response = await request(app).put("/users/" + userId)
+    .set("authorization", "JWT " + userTest.token)
+    .send(updatedUserInfo);
     const user = response.body;
     expect(response.statusCode).toBe(200);
     expect(user._id).toBe(userId);
@@ -94,8 +107,9 @@ describe("Users Tests", () => {
   });
 
   test("Users Delete test", async () => {
-    const response = await request(app).delete("/users/" + userId);
-      expect(response.statusCode).toBe(200);
+    const response = await request(app).delete("/users/" + userId)
+    .set("authorization", "JWT " + userTest.token);
+    expect(response.statusCode).toBe(200);
 
     const response2 = await request(app).get("/users/" + userId);
     expect(response2.statusCode).toBe(404);
