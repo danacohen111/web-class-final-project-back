@@ -28,8 +28,14 @@ type User = IUser & {
 const testUser: User = {
   username: "testuser",
   email: "test@user.com",
-  password: "testpassword",
-}
+  password: "testpassword"
+};
+
+const testPost = {
+    title: "Test Post",
+    content: "Test Content",
+    sender: "Ilana"
+};
 
 describe("Auth Tests", () => {
   test("Auth test register", async () => {
@@ -91,19 +97,11 @@ describe("Auth Tests", () => {
   });
 
   test("Auth test me", async () => {
-    const response = await request(app).post("/posts").send({
-      title: "Test Post",
-      content: "Test Content",
-      sender: "Ilana",
-    });
+    const response = await request(app).post("/posts").send(testPost);
     expect(response.statusCode).not.toBe(201);
     const response2 = await request(app).post("/posts").set(
       { authorization: "JWT " + testUser.accessToken }
-    ).send({
-      title: "Test Post",
-      content: "Test Content",
-      sender: "Ilana",
-    });
+    ).send(testPost);
     expect(response2.statusCode).toBe(201);
   });
 
@@ -164,12 +162,7 @@ describe("Auth Tests", () => {
     await new Promise((resolve) => setTimeout(resolve, 9000));
 
     const response2 = await request(app).post("/posts").set(
-      { authorization: "JWT " + testUser.accessToken }
-    ).send({
-      title: "Test Post",
-      content: "Test Content",
-      sender: "Ilana",
-    });
+      { authorization: "JWT " + testUser.accessToken }).send(testPost);
     expect(response2.statusCode).toBe(201);
 
     const response3 = await request(app).post(baseUrl + "/refresh").send({
@@ -179,12 +172,7 @@ describe("Auth Tests", () => {
     testUser.accessToken = response3.body.accessToken;
 
     const response4 = await request(app).post("/posts").set(
-      { authorization: "JWT " + testUser.accessToken }
-    ).send({
-      title: "Test Post",
-      content: "Test Content",
-      sender: "Ilana",
-    });
+      { authorization: "JWT " + testUser.accessToken }).send(testPost);
     expect(response4.statusCode).toBe(201);
   });
 });
