@@ -24,7 +24,7 @@ const updatedUserInfo: UserInfo = {
     username: "ilana_updated",
     email: "ilana2_updated",
     password: "ilana2_updated"
-  };
+};
 
 const testUserFail = {
     email: "ilana1",
