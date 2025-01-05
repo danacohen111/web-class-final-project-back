@@ -14,19 +14,13 @@ type UserInfo = {
   _id?: string;
 };
 
-const userInfo: UserInfo = {
-  username: "ilana",
-  email: "ilana2",
-  password: "ilana2"
-}
-
-const userTest = {
+const userTest: UserInfo = {
     username: "ilana",
     email: "ilana2",
     password: "ilana2"
 }
 
-const updatedUserInfo = {
+const updatedUserInfo: UserInfo = {
     username: "ilana_updated",
     email: "ilana2_updated",
     password: "ilana2_updated"
@@ -36,19 +30,11 @@ const testUserFail = {
     email: "ilana1",
 };
   
-  let userId = "";
+let userId = "";
 
 beforeAll(async () => {
   app = await initApp();
   await usersModel.deleteMany();
-  await request(app).post("/auth/register").send(userInfo);
-  const response = await request(app).post("/auth/login").send({
-    email: userInfo.email,
-    password: userInfo.password
-  });
-  userInfo.token = response.body.accessToken;
-  userInfo._id = response.body._id;
-  console.log("user: " + userInfo.token);
 });
 
 afterAll(async () => {
@@ -57,34 +43,39 @@ afterAll(async () => {
 
 describe("Users Tests", () => {
     test("Users Get All test", async () => {
-        const response = await request(app)
-          .get("/users")
-          .set("authorization", "JWT " + userInfo.token);
+        const response = await request(app).get("/users");
         const users = response.body;
         expect(response.statusCode).toBe(200);
         expect(Array.isArray(users)).toBe(true);
       });
 
-  test("Users Create test", async () => {
-        const response = await request(app)
-          .post("/users")
-          .send(userTest);
+    test("Users Create test", async () => {
+        const response = await request(app).post("/users").send(userTest);
         const user = response.body;
         expect(response.statusCode).toBe(201);
         expect(user.username).toBe(userTest.username);
         expect(user.email).toBe(userTest.email);
+        expect(user.password).toBe(userTest.password);
         userId = user._id;
       });
 
+    test("Users Create double test fail", async () => {
+        const response = await request(app).post("/users").send(userTest);
+        expect(response.statusCode).toBe(400);
+    });
+
+    test("Users Create with missing info test fail", async () => {
+      const response = await request(app).post("/users").send(testUserFail);
+      expect(response.statusCode).toBe(400);
+  });
+
   test("Users Get By Id test", async () => {
-    const response = await request(app)
-      .get("/users/" + userId)
-      .set("authorization", "JWT " + userInfo.token);
+    const response = await request(app).get("/users/" + userId)
     const user = response.body;
     expect(response.statusCode).toBe(200);
     expect(user._id).toBe(userId);
-    expect(user.username).toBe(userInfo.username);
-    expect(user.email).toBe(userInfo.email);
+    expect(user.username).toBe(userTest.username);
+    expect(user.email).toBe(userTest.email);
   });
 
   test("Users Get By Id test fail", async () => {
@@ -93,27 +84,8 @@ describe("Users Tests", () => {
     expect(response.statusCode).toBe(400);
   });
 
-  test("Users Create test", async () => {
-    const response = await request(app)
-      .post("/auth/register")
-      .send(userInfo);
-    const user = response.body;
-    expect(response.statusCode).toBe(201);
-    expect(user.username).toBe(userInfo.username);
-    expect(user.email).toBe(userInfo.email);
-    userId = user._id;
-  });
-
-  test("Users Create test fail", async () => {
-    const response = await request(app).post("/users").send(testUserFail);
-    expect(response.statusCode).not.toBe(201);
-  });
-
   test("Users Update test", async () => {
-    const response = await request(app)
-      .put("/users/" + userId)
-      .set("authorization", "JWT " + userInfo.token)
-      .send(updatedUserInfo);
+    const response = await request(app).put("/users/" + userId).send(updatedUserInfo);
     const user = response.body;
     expect(response.statusCode).toBe(200);
     expect(user._id).toBe(userId);
@@ -122,14 +94,10 @@ describe("Users Tests", () => {
   });
 
   test("Users Delete test", async () => {
-    const response = await request(app)
-      .delete("/users/" + userId)
-      .set("authorization", "JWT " + userInfo.token);
-    expect(response.statusCode).toBe(200);
+    const response = await request(app).delete("/users/" + userId);
+      expect(response.statusCode).toBe(200);
 
-    const response2 = await request(app)
-      .get("/users/" + userId)
-      .set("authorization", "JWT " + userInfo.token);
+    const response2 = await request(app).get("/users/" + userId);
     expect(response2.statusCode).toBe(404);
   });
 });
