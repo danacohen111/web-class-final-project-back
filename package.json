@@ -8,7 +8,8 @@
     "start": "tsc && node ./dist/app.js",
     "test": "tsc && jest --detectOpenHandles --coverage --forceExit --runInBand",
     "test:comments": "jest src/tests/comments.test.ts",
-    "test:posts": "jest src/tests/posts.test.ts"
+    "test:posts": "jest src/tests/posts.test.ts",
+    "test:auth": "jest src/tests/auth.jest.ts"
   },
   "author": "Dana & Ilana",
   "license": "ISC",
