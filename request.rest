@@ -99,15 +99,15 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "ilana1",
+    "username": "ilana111",
     "password": "ilana1",
-    "email": "ilana1"
+    "email": "ilana111"
 }
 
 ###
 
 # update a user
-PUT http://localhost:3000/users/677add404fcb51060647476d
+PUT http://localhost:3000/users/677ba84c75d84106aa1b137e
 Content-Type: application/json
 Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZGQ0MDRmY2I1MTA2MDY0NzQ3NmQiLCJyYW5kIjowLjI1NzU4NTcxMTExMjgzOTcsImlhdCI6MTczNjEwNTMxNiwiZXhwIjoxNzM2MzY0NTE2fQ.382_ODoKTkWc9qZHG5GNyWhHMqWD0LGeKvT-YSDXUSE
 
@@ -140,9 +140,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "ilana11",
-    "password": "ilana11",
-    "email": "ilana11"
+    "username": "ilana111",
+    "password": "ilana1",
+    "email": "ilana1"
 }
 
 ###

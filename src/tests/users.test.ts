@@ -15,6 +15,12 @@ type UserInfo = {
   _id?: string;
 };
 
+const userInfo: UserInfo = {
+  username: "ilana",
+  email: "ilana2",
+  password: "ilana2"
+}
+
 const userTest: UserInfo = {
     username: "ilana1",
     email: "ilana1",
@@ -60,14 +66,13 @@ describe("Users Tests", () => {
         expect(user.password).toBe(userTest.password);
         userId = user._id;
 
-        await request(app).post("/auth/register").send(userTest);
-        const response1 = await request(app).post("/auth/login").send({
-          email: userTest.email,
-          password: userTest.password
-        });
-        userTest.token = response1.body.accessToken;
-        userTest._id = response1.body._id;
-        console.log("userme: " + userTest.token);
+        await request(app).post("/auth/register").send(userInfo);
+          const response1 = await request(app).post("/auth/login").send({
+            email: userInfo.email,
+            password: userInfo.password
+          });
+          userInfo.token = response1.body.accessToken;
+          userInfo._id = response1.body._id;
     });
 
     test("Users Create double test fail", async () => {
@@ -97,7 +102,7 @@ describe("Users Tests", () => {
 
   test("Users Update test", async () => {
     const response = await request(app).put("/users/" + userId)
-    .set("authorization", "JWT " + userTest.token)
+    .set("authorization", "JWT " + userInfo.token)
     .send(updatedUserInfo);
     const user = response.body;
     expect(response.statusCode).toBe(200);
@@ -108,7 +113,7 @@ describe("Users Tests", () => {
 
   test("Users Delete test", async () => {
     const response = await request(app).delete("/users/" + userId)
-    .set("authorization", "JWT " + userTest.token);
+    .set("authorization", "JWT " + userInfo.token);
     expect(response.statusCode).toBe(200);
 
     const response2 = await request(app).get("/users/" + userId);
