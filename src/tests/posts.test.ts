@@ -46,12 +46,14 @@ const testPost1 = {
   sender: "Ilana",
   title: "My First post",
   content: "This is my first post",
+  realestate: "60f9f8b7b3c3e1b9d8"
 };
 
 const testPost2 = {
   sender: "Ilana",
   title: "My First post 2",
   content: "This is my first post 2",
+  realestate: "60f9f8b7b3c3e1b9d8"
 };
 
 const testPostFail = {
@@ -63,6 +65,7 @@ const updatedPost = {
     sender: "Ilana",
     title: "My updated post",
     content: "My first update",
+    realestate: "60f9f8b7b3c3e1b9d00"
   };
   
 
