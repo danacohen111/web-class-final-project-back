@@ -7,6 +7,7 @@ export interface IRealestate {
     description: string;
     area: string; 
     location: string; 
+    picture: string;
     }
 
 const Schema = mongoose.Schema;
@@ -35,8 +36,10 @@ const realestateSchema = new Schema<IRealestate>({
     location:{
       type: String,
       required: true
-    }
-    })
+    },
+    picture: {
+      type: String
+    }})
 
 const realestateModel = mongoose.model<IRealestate>("Realestate", realestateSchema);
 export default realestateModel;

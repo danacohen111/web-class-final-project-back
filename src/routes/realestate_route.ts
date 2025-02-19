@@ -32,12 +32,12 @@ const router = express.Router();
  *                   address:
  *                     type: string
  *                   owner:
- *                     type: mongoose.Schema.Types.ObjectId
+ *                     type: string
  *                   description:
  *                     type: string
- *                    area:
+ *                   area:
  *                     type: string
- *                    location:
+ *                   location:
  *                     type: string
  *                   _id:
  *                     type: string
@@ -69,19 +69,19 @@ router.get("/", realestateController.getAll.bind(realestateController));
  *             schema:
  *               type: object
  *               properties:
- *                   city:
+ *                  city:
  *                     type: string
- *                   address:
+ *                  address:
  *                     type: string
- *                   owner:
- *                     type: mongoose.Schema.Types.ObjectId
- *                   description:
+ *                  owner:
  *                     type: string
- *                    area:
+ *                  description:
  *                     type: string
- *                    location:
+ *                  area:
  *                     type: string
- *                   _id:
+ *                  location:
+ *                     type: string
+ *                  _id:
  *                     type: string
  *       404:
  *         description: realestate not found
@@ -94,7 +94,7 @@ router.get("/:id", realestateController.getById.bind(realestateController));
 /**
  * @swagger
  * /realestate:
- *   realestate:
+ *   post:
  *     summary: Create a new realestate
  *     description: Create a new realestate
  *     tags: [realestate]
@@ -112,14 +112,12 @@ router.get("/:id", realestateController.getById.bind(realestateController));
  *                   address:
  *                     type: string
  *                   owner:
- *                     type: mongoose.Schema.Types.ObjectId
+ *                     type: string
  *                   description:
  *                     type: string
- *                    area:
+ *                   area:
  *                     type: string
- *                    location:
- *                     type: string
- *                   _id:
+ *                   location:
  *                     type: string
  *     responses:
  *       201:
@@ -134,12 +132,12 @@ router.get("/:id", realestateController.getById.bind(realestateController));
  *                   address:
  *                     type: string
  *                   owner:
- *                     type: mongoose.Schema.Types.ObjectId
+ *                     type: string
  *                   description:
  *                     type: string
- *                    area:
+ *                   area:
  *                     type: string
- *                    location:
+ *                   location:
  *                     type: string
  *                   _id:
  *                     type: string
@@ -179,14 +177,12 @@ router.post("/", authMiddleware, realestateController.create.bind(realestateCont
  *                   address:
  *                     type: string
  *                   owner:
- *                     type: mongoose.Schema.Types.ObjectId
+ *                     type: string
  *                   description:
  *                     type: string
- *                    area:
+ *                   area:
  *                     type: string
- *                    location:
- *                     type: string
- *                   _id:
+ *                   location:
  *                     type: string
  *     responses:
  *       200:
@@ -201,12 +197,12 @@ router.post("/", authMiddleware, realestateController.create.bind(realestateCont
  *                   address:
  *                     type: string
  *                   owner:
- *                     type: mongoose.Schema.Types.ObjectId
+ *                     type: string
  *                   description:
  *                     type: string
- *                    area:
+ *                   area:
  *                     type: string
- *                    location:
+ *                   location:
  *                     type: string
  *                   _id:
  *                     type: string

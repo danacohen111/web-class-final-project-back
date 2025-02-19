@@ -178,3 +178,52 @@ Content-Type: application/json
 }
 
 ###
+
+### Realestate API
+
+# Create a new relestate
+POST http://localhost:3000/realestate
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2I1ZGYxY2E5YmVlMWZkYjViNzZiNWMiLCJyYW5kIjowLjc0MDY1MDQ4NDI4NDkwOTEsImlhdCI6MTczOTk3MjY3NSwiZXhwIjoxNzQwMjMxODc1fQ.oCZJPbXkUNxXn2fYbSkzw9-AsbhWpUIOssc_Vp7Nxss
+{
+  "city": "TLV",
+  "address": "Shaul Hamelech 1",
+  "owner": "67b5df1ca9bee1fdb5b76b5c",
+  "description": "Beautiful apartment",
+  "area": "400x400",
+  "location": "37.7749,-122.4194",
+}
+
+###
+
+# update a new realestate
+PUT http://localhost:3000/relestate/677ba9e259bf02cdbf3af12d
+Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZGQ0MDRmY2I1MTA2MDY0NzQ3NmQiLCJyYW5kIjowLjI1NzU4NTcxMTExMjgzOTcsImlhdCI6MTczNjEwNTMxNiwiZXhwIjoxNzM2MzY0NTE2fQ.382_ODoKTkWc9qZHG5GNyWhHMqWD0LGeKvT-YSDXUSE
+
+{
+  "address": "Leonardo da vinchi 1"
+}
+
+###
+
+# Get all realestate
+GET http://localhost:3000/realestate
+
+###
+
+# Get a realestate by ID
+GET http://localhost:3000/realestate/677ba9748864c52659d9788b
+
+###
+
+# Get realestate by owner ID
+GET http://localhost:3000/realestate?owner=
+
+###
+
+# Delete a realestate by ID
+DELETE http://localhost:3000/realestate/677ba9748864c52659d9788b
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZGQ0MDRmY2I1MTA2MDY0NzQ3NmQiLCJyYW5kIjowLjI1NzU4NTcxMTExMjgzOTcsImlhdCI6MTczNjEwNTMxNiwiZXhwIjoxNzM2MzY0NTE2fQ.382_ODoKTkWc9qZHG5GNyWhHMqWD0LGeKvT-YSDXUSE
+
+###
