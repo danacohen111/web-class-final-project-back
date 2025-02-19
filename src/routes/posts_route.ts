@@ -34,7 +34,7 @@ const router = express.Router();
  *                   senderID:
  *                     type: string
  *                   realestate:
- *                     type: object
+ *                     type: string
  *                   _id:
  *                     type: string
  *       500:
@@ -72,7 +72,7 @@ router.get("/", postsController.getAll.bind(postsController));
  *                 sender:
  *                   type: string
  *                 realestate:
- *                   type: object
+ *                   type: string
  *                 _id:
  *                   type: string
  *       404:
@@ -105,7 +105,7 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 type: string
  *               sender:
  *                 type: string
- *                realestate:
+ *               realestate:
  *                 type: string
  *     responses:
  *       201:
@@ -122,7 +122,7 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 sender:
  *                   type: string
  *                 realestate:
- *                   type: object
+ *                   type: string
  *                 _id:
  *                   type: string
  *       401:
@@ -179,7 +179,7 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                 sender:
  *                   type: string
  *                 realestate:
- *                   type: object
+ *                   type: string
  *                 _id:
  *                   type: string
  *       401:
