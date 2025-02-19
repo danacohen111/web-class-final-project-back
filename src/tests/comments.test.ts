@@ -5,6 +5,7 @@ import postsModel from "../models/posts_model";
 import commentsModel from "../models/comments_model";
 import usersModel from "../models/users_model";
 import { Express } from "express";
+import realestateModel from "../models/realestate_model";
 
 let app: Express;
 
@@ -27,6 +28,7 @@ type UserInfo = {
     sender: "Ilana",
     title: "My First post",
     content: "This is my first post",
+    realestate: "67b5f62d7a9f30ccb1fca1aa"
   };
   
   const testComment1 = {

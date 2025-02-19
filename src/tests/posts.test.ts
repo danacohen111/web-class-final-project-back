@@ -46,12 +46,14 @@ const testPost1 = {
   sender: "Ilana",
   title: "My First post",
   content: "This is my first post",
+  realestate: "67b5f62d7a9f30ccb1fca1aa"
 };
 
 const testPost2 = {
   sender: "Ilana",
   title: "My First post 2",
   content: "This is my first post 2",
+  realestate: "67b5f62d7a9f30ccb1fca1aa"
 };
 
 const testPostFail = {
@@ -63,6 +65,7 @@ const updatedPost = {
     sender: "Ilana",
     title: "My updated post",
     content: "My first update",
+    realestate: "67b5f62d7a9f30ccb1fca1aa"
   };
   
 
@@ -78,7 +81,6 @@ describe("Posts Tests", () => {
     const response = await request(app).post("/posts")
       .set("authorization", "JWT " + userInfo.token)
       .send(testPost1);
-    console.log(response.body);
     const post = response.body;
     expect(response.statusCode).toBe(201);
     expect(post.sender).toBe(testPost1.sender);

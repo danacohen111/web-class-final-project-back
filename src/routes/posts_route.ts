@@ -33,6 +33,8 @@ const router = express.Router();
  *                     type: string
  *                   senderID:
  *                     type: string
+ *                   realestate:
+ *                     type: string
  *                   _id:
  *                     type: string
  *       500:
@@ -69,6 +71,8 @@ router.get("/", postsController.getAll.bind(postsController));
  *                   type: string
  *                 sender:
  *                   type: string
+ *                 realestate:
+ *                   type: string
  *                 _id:
  *                   type: string
  *       404:
@@ -101,6 +105,8 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 type: string
  *               sender:
  *                 type: string
+ *               realestate:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Post created successfully
@@ -114,6 +120,8 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 content:
  *                   type: string
  *                 sender:
+ *                   type: string
+ *                 realestate:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -154,60 +162,7 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                 type: string
  *               sender:
  *                 type: string
- *     responses:
- *       200:
- *         description: Post updated successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 title:
- *                   type: string
- *                 content:
- *                   type: string
- *                 sender:
- *                   type: string
- *                 _id:
- *                   type: string
- *       401:
- *         description: Access denied
- *       404:
- *         description: Post not found
- *       500:
- *         description: Internal server error
- */
-
-router.put("/:id", authMiddleware, postsController.updateItem.bind(postsController));
-
-/**
- * @swagger
- * /posts/{id}:
- *   put:
- *     summary: Update a post by ID
- *     description: Update a post by ID
- *     tags: [Posts]
- *     security:
- *       - bearerAuth: []
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: The post ID
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               content:
- *                 type: string
- *               sender:
+ *               realestate:
  *                 type: string
  *     responses:
  *       200:
@@ -223,6 +178,8 @@ router.put("/:id", authMiddleware, postsController.updateItem.bind(postsControll
  *                   type: string
  *                 sender:
  *                   type: string
+ *                 realestate:
+ *                   type: string
  *                 _id:
  *                   type: string
  *       401:
@@ -232,6 +189,7 @@ router.put("/:id", authMiddleware, postsController.updateItem.bind(postsControll
  *       500:
  *         description: Internal server error
  */
+
 router.put("/:id", authMiddleware, postsController.updateItem.bind(postsController));
 
 /**

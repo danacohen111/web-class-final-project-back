@@ -7,6 +7,7 @@ import postsRoute from "./routes/posts_route";
 import commentsRoute from "./routes/comments_route";
 import usersRoute from "./routes/users_route";
 import auth_routes from "./routes/auth_route";
+import realestateRoute from "./routes/realestate_route";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 
@@ -17,6 +18,7 @@ app.use("/posts", postsRoute);
 app.use("/comments", commentsRoute);
 app.use("/users", usersRoute);
 app.use("/auth", auth_routes);
+app.use('/realestate',realestateRoute);
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",

@@ -34,7 +34,8 @@ const testUser: User = {
 const testPost = {
     title: "Test Post",
     content: "Test Content",
-    sender: "Ilana"
+    sender: "Ilana",
+    realestate: "67b5f62d7a9f30ccb1fca1aa"
 };
 
 describe("Auth Tests", () => {
