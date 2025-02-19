@@ -3,7 +3,7 @@
 # Create a new post
 POST http://localhost:3000/posts
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2I1ZTQ4OTFkYmE3OTM1YWExM2IxYTUiLCJyYW5kIjowLjAxMjA1MTA2NTc4MjU0OTg4NiwiaWF0IjoxNzM5OTc0NDM3LCJleHAiOjE3NDAyMzM2Mzd9.dlF41_kXEKbjZjyfp0ti21O1bj2bMg1lPq7FzRg46oY
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2I1ZjRiM2Q3OGRmY2ZjZmNhOGNiZTUiLCJyYW5kIjowLjQ5ODg1NzMxMzc3MTM3NzIsImlhdCI6MTczOTk3NzkyMSwiZXhwIjoxNzQwMjM3MTIxfQ.esnBwSy2cUsbaBEAGXRBpIHzX_Gt_Y7_063CtQaUnI0
 
 {
     "title": "New postt",
@@ -100,9 +100,9 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "ilana211",
+    "username": "ilana311",
     "password": "ilana111",
-    "email": "ilana111"
+    "email": "ilana311"
 }
 
 ###
@@ -141,9 +141,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "ilana22",
-    "password": "ilana2",
-    "email": "ilana2"
+    "username": "ilana411",
+    "password": "ilana411",
+    "email": "ilana411"
 }
 
 ###
@@ -153,8 +153,8 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "email": "ilana2",
-    "password": "ilana2"
+    "email": "ilana411",
+    "password": "ilana411"
 }
 
 ###

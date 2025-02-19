@@ -28,7 +28,7 @@ type UserInfo = {
     sender: "Ilana",
     title: "My First post",
     content: "This is my first post",
-    realestate: "60f9f8b7b3c3e1b9d8"
+    realestate: "67b5f62d7a9f30ccb1fca1aa"
   };
   
   const testComment1 = {
