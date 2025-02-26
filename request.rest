@@ -141,9 +141,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "username": "ilana411",
-    "password": "ilana411",
-    "email": "ilana411"
+    "username": "dana2112",
+     "email": "dc@gmail.com",
+    "password": "123456"
 }
 
 ###
