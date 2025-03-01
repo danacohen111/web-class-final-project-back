@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    imgUrl: {
+        type: String,
+      },
     refreshTokens: {
         type: [String],
         default: [],

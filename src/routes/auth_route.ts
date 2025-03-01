@@ -29,6 +29,8 @@ const router = express.Router();
  *                 type: string
  *               email:
  *                 type: string
+ *               imgUrl:
+ *                 type: string
  *     responses:
  *       201:
  *         description: The registered user
@@ -42,6 +44,8 @@ const router = express.Router();
  *                 email:
  *                   type: string
  *                 password:
+ *                   type: string
+ *                 imgUrl:
  *                   type: string
  *                 refreshTokens:
  *                   type: array
