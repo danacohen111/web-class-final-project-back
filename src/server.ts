@@ -3,6 +3,7 @@ dotenv.config();
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import express, { Express } from "express";
+import cors from "cors"; 
 import postsRoute from "./routes/posts_route";
 import commentsRoute from "./routes/comments_route";
 import usersRoute from "./routes/users_route";
@@ -12,6 +13,14 @@ import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173", 
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+    credentials: true, 
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/posts", postsRoute);
