@@ -33,7 +33,10 @@ const googleSignin = async (req: Request, res: Response) => {
                 })
         }
     } catch (err) {
-        return res.status(400).send(err.message);
+        if (err instanceof Error) {
+            return res.status(400).send(err.message);
+        }
+        return res.status(400).send("An unknown error occurred");
     }
 
 }
