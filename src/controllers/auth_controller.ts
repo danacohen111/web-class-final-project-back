@@ -1,8 +1,42 @@
 import { Request, Response, NextFunction } from "express";
+import { OAuth2Client } from "google-auth-library";
 import userModel, { IUser } from "../models/users_model";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Document } from "mongoose";
+
+const client = new OAuth2Client();
+const googleSignin = async (req: Request, res: Response) => {
+    console.log(req.body);
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken: req.body.credential,
+            audience: process.env.GOOGLE_CLIENT_ID,
+        });
+        const payload = ticket.getPayload();
+        const email = payload?.email;
+        if (email != null) {
+            let user = await userModel.findOne({ 'email': email });
+            if (user == null) {
+                user = await userModel.create(
+                    {
+                        'email': email,
+                        'password': '0',
+                    });
+            }
+            const tokens = await generateTokens(user)
+            res.status(200).send(
+                {
+                    email: user.email,
+                    _id: user._id,
+                    ...tokens
+                })
+        }
+    } catch (err) {
+        return res.status(400).send(err.message);
+    }
+
+}
 
 const register = async (req: Request, res: Response) => {
     try {
@@ -178,6 +212,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
 }
 
 export default {
+    googleSignin,
     register,
     login,
     refresh,
