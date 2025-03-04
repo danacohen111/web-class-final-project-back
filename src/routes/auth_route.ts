@@ -70,8 +70,6 @@ router.post("/register", authController.register);
  *           schema:
  *             type: object
  *             properties:
- *               username:
- *                 type: string
  *               password:
  *                 type: string
  *               email:
