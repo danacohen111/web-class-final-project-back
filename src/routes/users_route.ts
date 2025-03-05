@@ -30,6 +30,14 @@ const router = express.Router();
  *                 type: string
  *               email:
  *                 type: string
+ *               imgURL:
+ *                 type: string
+ *               phoneNumber:
+ *                 type: string
+ *                 description: Optional phone number of the user
+ *               fullName:
+ *                 type: string
+ *                 description: Optional full name of the user
  *     responses:
  *       201:
  *         description: The created user
@@ -43,6 +51,12 @@ const router = express.Router();
  *                 email:
  *                   type: string
  *                 password:
+ *                   type: string
+ *                 imgURL:
+ *                   type: string
+ *                 phoneNumber:
+ *                   type: string
+ *                 fullName:
  *                   type: string
  *                 refreshTokens:
  *                   type: array
@@ -86,6 +100,14 @@ router.post("/", usersController.create.bind(usersController));
  *                 type: string
  *               email:
  *                 type: string
+ *               imgURL:
+ *                 type: string
+ *               phoneNumber:
+ *                 type: string
+ *                 description: Optional phone number of the user
+ *               fullName:
+ *                 type: string
+ *                 description: Optional full name of the user
  *     responses:
  *       200:
  *         description: The updated user
@@ -99,6 +121,12 @@ router.post("/", usersController.create.bind(usersController));
  *                 email:
  *                   type: string
  *                 password:
+ *                   type: string
+ *                 imgURL:
+ *                   type: string
+ *                 phoneNumber:
+ *                   type: string
+ *                 fullName:
  *                   type: string
  *                 refreshTokens:
  *                   type: array
@@ -141,6 +169,12 @@ router.put("/:id", authMiddleware, usersController.updateItem.bind(usersControll
  *                   type: string
  *                 password:
  *                   type: string
+ *                 imgURL:
+ *                   type: string
+ *                 phoneNumber:
+ *                   type: string
+ *                 fullName:
+ *                   type: string
  *                 refreshTokens:
  *                   type: array
  *                   items:
@@ -176,6 +210,12 @@ router.get("/:id", usersController.getById.bind(usersController));
  *                   email:
  *                     type: string
  *                   password:
+ *                     type: string
+ *                   imgURL:
+ *                     type: string
+ *                   phoneNumber:
+ *                     type: string
+ *                   fullName:
  *                     type: string
  *                   refreshTokens:
  *                     type: array
@@ -217,6 +257,12 @@ router.get("/", usersController.getAll.bind(usersController));
  *                 email:
  *                   type: string
  *                 password:
+ *                   type: string
+ *                 imgURL:
+ *                   type: string
+ *                 phoneNumber:
+ *                   type: string
+ *                 fullName:
  *                   type: string
  *                 refreshTokens:
  *                   type: array

@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    fullName: {
+        type: String
+    },
     email: {
         type: String,
         required: true,
@@ -23,6 +26,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    phoneNumber: {
+        type: String
+    },
+    imgUrl: {
+        type: String,
+      },
     refreshTokens: {
         type: [String],
         default: [],

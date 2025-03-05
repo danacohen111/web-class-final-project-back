@@ -43,7 +43,7 @@ const googleSignin = async (req: Request, res: Response) => {
 
 const register = async (req: Request, res: Response) => {
     try {
-        const { email, password, username } = req.body;
+        const { email, password, username, imgUrl, phoneNumber, fullName } = req.body;
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -51,6 +51,9 @@ const register = async (req: Request, res: Response) => {
             email: email,
             password: hashedPassword,
             username: username,
+            imgUrl: imgUrl,
+            phoneNumber: phoneNumber,
+            fullName: fullName
         });
         res.status(200).send(user);
     } catch (err) {
