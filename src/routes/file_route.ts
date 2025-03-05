@@ -50,4 +50,4 @@ router.post('/', upload.single("file"), function (req, res) {
     res.status(200).send({ url: base + req.file?.path })
 });
 
-export = router;
+export default router;
