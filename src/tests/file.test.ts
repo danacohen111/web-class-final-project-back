@@ -21,7 +21,7 @@ describe("File Tests", () => {
 
         try {
             const response = await request(app)
-                .post("/file?file=capten.webp")
+                .post("/file")
                 .attach('file', filePath);
             console.log('Upload response:', response.body);
             expect(response.statusCode).toEqual(200);
