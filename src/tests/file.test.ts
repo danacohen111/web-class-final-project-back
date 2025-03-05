@@ -18,7 +18,6 @@ afterAll(async () => {
 describe("File Tests", () => {
     test("upload file", async () => {
         const filePath = path.join(__dirname, 'capten.webp');
-        console.log(filePath);
 
         try {
             const response = await request(app)
@@ -26,13 +25,12 @@ describe("File Tests", () => {
                 .attach('file', filePath);
             expect(response.statusCode).toEqual(200);
             let url = response.body.url;
-            console.log(url);
             url = url.replace(/^.*\/\/[^/]+/, '');
             const res = await request(app).get(url);
             expect(res.statusCode).toEqual(200);
         } catch (err) {
             console.error('Error during file upload test:', err);
-            throw err; // Rethrow the error to fail the test
+            throw err;
         }
     });
 });
