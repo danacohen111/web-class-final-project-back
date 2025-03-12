@@ -21,7 +21,7 @@ const postSchema = new mongoose.Schema({
   }, 
     realestate: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'realestate',
+        ref: 'Realestate',
         required: true
     },    
   });

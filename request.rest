@@ -15,13 +15,14 @@ Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2QxYTZjYjVi
 ###
 
 # update a new post
-PUT http://localhost:3000/posts/67b5ea5f29757ff82b8b87f3
+PUT http://localhost:3000/posts/67d1a7a95baee03604323c19
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2I1ZTQ4OTFkYmE3OTM1YWExM2IxYTUiLCJyYW5kIjowLjAxMjA1MTA2NTc4MjU0OTg4NiwiaWF0IjoxNzM5OTc0NDM3LCJleHAiOjE3NDAyMzM2Mzd9.dlF41_kXEKbjZjyfp0ti21O1bj2bMg1lPq7FzRg46oY
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2QxYTZjYjViYWVlMDM2MDQzMjNjMDciLCJyYW5kIjowLjUxMTM1ODU3NDk2ODE2NiwiaWF0IjoxNzQxNzk2MTIwLCJleHAiOjE3NDIwNTUzMjB9.UQJV0C22qsHle7-MMRfAD1hfOlI4bC7NXnG9Y3mdaw4
 
 {
-    "user": "dana",
-    "content": "Test1"
+    "user": "67d1a6cb5baee03604323c07",
+    "content": "Test1",
+    "realestate": "67d1b32d5baee03604323cdf"
 }
 
 ###
@@ -185,12 +186,12 @@ Content-Type: application/json
 # Create a new realestate
 POST http://localhost:3000/realestate
 Content-Type: application/json
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2I1ZTQ4OTFkYmE3OTM1YWExM2IxYTUiLCJyYW5kIjowLjAxMjA1MTA2NTc4MjU0OTg4NiwiaWF0IjoxNzM5OTc0NDM3LCJleHAiOjE3NDAyMzM2Mzd9.dlF41_kXEKbjZjyfp0ti21O1bj2bMg1lPq7FzRg46oY
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2QxYTZjYjViYWVlMDM2MDQzMjNjMDciLCJyYW5kIjowLjUxMTM1ODU3NDk2ODE2NiwiaWF0IjoxNzQxNzk2MTIwLCJleHAiOjE3NDIwNTUzMjB9.UQJV0C22qsHle7-MMRfAD1hfOlI4bC7NXnG9Y3mdaw4
 
 {
   "city": "TLV",
   "address": "Shaul Hamelech 1",
-  "owner": "67b5df1ca9bee1fdb5b76b5c",
+  "owner": "67d1a6cb5baee03604323c07",
   "description": "Beautiful apartment",
   "area": "400x400",
   "location": "37.7749,-122.4194"
