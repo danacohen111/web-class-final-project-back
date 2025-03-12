@@ -19,4 +19,4 @@ COPY ./ssl/client-key.pem /app/ssl/client-key.pem
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["npm", "start", "prod"]
