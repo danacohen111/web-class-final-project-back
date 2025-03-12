@@ -53,7 +53,6 @@ router.post('/', upload.single("file"), function (req, res) {
         return res.status(400).send({ error: 'File is not provided or path is undefined' });
     }
 
-    console.log("router.post(/file: " + base + req.file.path)
     res.status(200).send({ url: base + req.file.path })
 });
 

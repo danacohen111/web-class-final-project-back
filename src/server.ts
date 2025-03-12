@@ -60,10 +60,7 @@ const initApp = () => {
       reject("DB_CONNECT is not defined in environment variables");
     } else {
       mongoose
-        .connect(process.env.DB_CONNECT, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        } as mongoose.ConnectOptions)
+        .connect(process.env.DB_CONNECT)
         .then(() => {
           resolve(app);
         })
