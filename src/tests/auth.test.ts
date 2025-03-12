@@ -34,7 +34,7 @@ const testUser: User = {
 const testPost = {
     title: "Test Post",
     content: "Test Content",
-    sender: "Ilana",
+    user: "67b5f62d7a9f30ccb1fca1aa",
     realestate: "67b5f62d7a9f30ccb1fca1aa"
 };
 

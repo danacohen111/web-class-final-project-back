@@ -38,7 +38,7 @@ const router = express.Router();
  *                     type: string
  *                   content:
  *                     type: string
- *                   sender:
+ *                   user:
  *                     type: string
  *                   _id:
  *                     type: string
@@ -79,7 +79,7 @@ router.get("/", commentsController.getAll.bind(commentsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
+ *                 user:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -116,7 +116,7 @@ router.get("/:id", commentsController.getById.bind(commentsController));
  *                 type: string
  *               content:
  *                 type: string
- *               sender:
+ *               user:
  *                 type: string
  *     responses:
  *       201:
@@ -130,7 +130,7 @@ router.get("/:id", commentsController.getById.bind(commentsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
+ *                 user:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -175,7 +175,7 @@ router.post("/", authMiddleware, commentsController.create.bind(commentsControll
  *                 type: string
  *               content:
  *                 type: string
- *               sender:
+ *               user:
  *                 type: string
  *     responses:
  *       200:
@@ -189,7 +189,7 @@ router.post("/", authMiddleware, commentsController.create.bind(commentsControll
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
+ *                 user:
  *                   type: string
  *                 _id:
  *                   type: string
@@ -236,7 +236,7 @@ router.put("/:id", authMiddleware, commentsController.updateItem.bind(commentsCo
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
+ *                 user:
  *                   type: string
  *                 _id:
  *                   type: string

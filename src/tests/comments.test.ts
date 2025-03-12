@@ -25,20 +25,20 @@ type UserInfo = {
   }
   
   const testPost1 = {
-    sender: "Ilana",
+    user: "IlanaTest",
     title: "My First post",
     content: "This is my first post",
     realestate: "67b5f62d7a9f30ccb1fca1aa"
   };
   
   const testComment1 = {
-    sender: "Ilana",
+    user: "IlanaTest",
     content: "My post",
     post: new mongoose.Types.ObjectId().toString()
   };
 
   const updatedComment = {
-    sender: "Ilana",
+    user: "IlanaTest",
     content: "I like this post",
     post: new mongoose.Types.ObjectId().toString()
   };
@@ -89,7 +89,7 @@ describe("Comments Tests", () => {
       }
     const comment = response.body;
     expect(response.statusCode).toBe(201);
-    expect(comment.sender).toBe(testComment1.sender);
+    expect(comment.user).toBe(testComment1.user);
     expect(comment.content).toBe(testComment1.content);
     expect(comment.post).toBe(testComment1.post);
     commentId = comment._id;
@@ -106,7 +106,7 @@ describe("Comments Tests", () => {
     }
     const comment = response.body;
     expect(response.statusCode).toBe(200);
-    expect(comment.sender).toBe(updatedComment.sender);
+    expect(comment.user).toBe(updatedComment.user);
     expect(comment.content).toBe(updatedComment.content);
     expect(comment.post).toBe(updatedComment.post);
   });
@@ -121,7 +121,7 @@ describe("Comments Tests", () => {
     const comment = response.body;
     expect(response.statusCode).toBe(200);
     expect(comment._id).toBe(commentId);
-    expect(comment.sender).toBe(updatedComment.sender);
+    expect(comment.user).toBe(updatedComment.user);
     expect(comment.content).toBe(updatedComment.content);
     expect(comment.post).toBe(updatedComment.post);
   });
@@ -136,7 +136,7 @@ describe("Comments Tests", () => {
         }
         const comment = response.body;
         expect(response.statusCode).toBe(200);
-        expect(comment.sender).toBe(updatedComment.sender);
+        expect(comment.user).toBe(updatedComment.user);
         expect(comment.content).toBe(updatedComment.content);
         expect(comment.post).toBe(updatedComment.post);
     });

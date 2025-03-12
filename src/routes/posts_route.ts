@@ -9,14 +9,14 @@ const router = express.Router();
  * /posts:
  *   get:
  *     summary: Get all posts
- *     description: Retrieve all posts or filter by sender
+ *     description: Retrieve all posts or filter by user
  *     tags: [Posts]
  *     parameters:
  *       - in: query
- *         name: sender
+ *         id: user
  *         schema:
  *           type: string
- *         description: The ID of the sender to filter posts by
+ *         description: The ID of the user to filter posts by
  *     responses:
  *       200:
  *         description: Posts retrieved successfully
@@ -31,7 +31,7 @@ const router = express.Router();
  *                     type: string
  *                   content:
  *                     type: string
- *                   senderID:
+ *                   user:
  *                     type: string
  *                   realestate:
  *                     type: string
@@ -69,7 +69,7 @@ router.get("/", postsController.getAll.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
+ *                 user: 
  *                   type: string
  *                 realestate:
  *                   type: string
@@ -103,7 +103,7 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 type: string
  *               content:
  *                 type: string
- *               sender:
+ *               user:     
  *                 type: string
  *               realestate:
  *                 type: string
@@ -119,8 +119,8 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
- *                   type: string
+ *                 user:
+ *                    type: string
  *                 realestate:
  *                   type: string
  *                 _id:
@@ -160,7 +160,7 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                 type: string
  *               content:
  *                 type: string
- *               sender:
+ *               user:
  *                 type: string
  *               realestate:
  *                 type: string
@@ -176,7 +176,7 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 sender:
+ *                 user:
  *                   type: string
  *                 realestate:
  *                   type: string
