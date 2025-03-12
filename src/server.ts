@@ -1,5 +1,4 @@
-import dotenv from "dotenv"
-dotenv.config();
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import express, { Express } from "express";
@@ -12,6 +11,10 @@ import realestateRoute from "./routes/realestate_route";
 import fileRoute from "./routes/file_route";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 const app = express();
 app.use(
@@ -54,10 +57,13 @@ db.once("open", () => console.log("Connected to database"));
 const initApp = () => {
   return new Promise<Express>((resolve, reject) => {
     if (!process.env.DB_CONNECT) {
-      reject("DB_CONNECT is not defined in .env file");
+      reject("DB_CONNECT is not defined in environment variables");
     } else {
       mongoose
-        .connect(process.env.DB_CONNECT)
+        .connect(process.env.DB_CONNECT, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        } as mongoose.ConnectOptions)
         .then(() => {
           resolve(app);
         })

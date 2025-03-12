@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/app.ts",
     "start": "tsc && node ./dist/app.js",
+    "build:prod": "tsc --project tsconfig_prod.json",
+    "prod": "npm run build:prod && node ./dist/app.js",
     "test": "tsc && jest --detectOpenHandles --coverage --forceExit --runInBand",
     "test:comments": "jest src/tests/comments.test.ts",
     "test:posts": "jest src/tests/posts.test.ts",
