@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173", 
+    origin: "*", 
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true, 
