@@ -11,9 +11,9 @@ RUN npm install
 # Copy application source code
 COPY . .
 
-# Copy SSL certificates from frontend directory
-COPY ./../frontend/front/ssl/client-cert.pem /app/ssl/client-cert.pem
-COPY ./../frontend/front/ssl/client-key.pem /app/ssl/client-key.pem
+# Copy SSL certificates from backend directory
+COPY ./ssl/client-cert.pem /app/ssl/client-cert.pem
+COPY ./ssl/client-key.pem /app/ssl/client-key.pem
 
 # Expose port
 EXPOSE 3000
