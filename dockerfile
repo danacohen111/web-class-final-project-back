@@ -11,6 +11,9 @@ RUN npm install
 # Copy application source code
 COPY . .
 
+# Compile TypeScript to JavaScript using tsconfig_prod.json
+RUN npx tsc --project tsconfig_prod.json
+
 # Copy SSL certificates from backend directory
 COPY ./ssl/client-cert.pem /app/ssl/client-cert.pem
 COPY ./ssl/client-key.pem /app/ssl/client-key.pem
