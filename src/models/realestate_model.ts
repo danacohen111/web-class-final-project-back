@@ -12,7 +12,7 @@ export interface IRealestate {
 
 const Schema = mongoose.Schema;
 const realestateSchema = new Schema<IRealestate>({
-  city: {
+    city: {
         type: String,
         required: true
     },

@@ -194,7 +194,8 @@ Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2QxYTZjYjVi
   "owner": "67d1a6cb5baee03604323c07",
   "description": "Beautiful apartment",
   "area": "400x400",
-  "location": "37.7749,-122.4194"
+  "location": "37.7749,-122.4194",
+  "picture": "https://www.google.com" 
 }
 
 ###
