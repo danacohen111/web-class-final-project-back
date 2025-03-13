@@ -3,6 +3,7 @@ import multer from "multer";
 
 const router = express.Router();
 
+console.log("process.env.BASE_URL: " + process.env.BASE_URL);
 const base = process.env.BASE_URL || "http://localhost:3000/";
 
 const storage = multer.diskStorage({
