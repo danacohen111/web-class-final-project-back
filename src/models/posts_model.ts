@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 export interface IPost extends Document {
   title: string;
   content: string;
-  sender: string;
+  user: mongoose.Schema.Types.ObjectId;
   comments: mongoose.Schema.Types.ObjectId[];
   realestate: mongoose.Schema.Types.ObjectId;
 }
@@ -14,13 +14,14 @@ const postSchema = new mongoose.Schema({
       required: true,
     },
     content: String,
-    sender: {
-      type: String,
-      required: true,
-    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users',
+      required: true
+    }, 
     realestate: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'realestate',
+        ref: 'Realestate',
         required: true
     },    
   });

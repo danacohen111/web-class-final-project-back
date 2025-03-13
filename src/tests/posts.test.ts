@@ -43,14 +43,14 @@ afterAll(async () => {
 var postId = "";
 
 const testPost1 = {
-  sender: "Ilana",
+  user: "67b5f62d7a9f30ccb1fca1aa",
   title: "My First post",
   content: "This is my first post",
   realestate: "67b5f62d7a9f30ccb1fca1aa"
 };
 
 const testPost2 = {
-  sender: "Ilana",
+  user: "67b5f62d7a9f30ccb1fca1bb",
   title: "My First post 2",
   content: "This is my first post 2",
   realestate: "67b5f62d7a9f30ccb1fca1aa"
@@ -58,12 +58,12 @@ const testPost2 = {
 
 const testPostFail = {
   content: "This is my first post 2",
-  sender: "DANA",
+  user: "ilanatest",
 };
 
 const updatedPost = {
-    sender: "Ilana",
     title: "My updated post",
+    user: "67b5f62d7a9f30ccb1fca1aa",
     content: "My first update",
     realestate: "67b5f62d7a9f30ccb1fca1aa"
   };
@@ -83,7 +83,7 @@ describe("Posts Tests", () => {
       .send(testPost1);
     const post = response.body;
     expect(response.statusCode).toBe(201);
-    expect(post.sender).toBe(testPost1.sender);
+    expect(post.user).toBe(testPost1.user);
     expect(post.title).toBe(testPost1.title);
     expect(post.content).toBe(testPost1.content);
     postId = post._id;
@@ -129,16 +129,16 @@ describe("Posts Tests", () => {
     const post = response.body;
     expect(response.statusCode).toBe(200);
     expect(post._id).toBe(postId);
-    expect(post.sender).toBe(updatedPost.sender);
+    expect(post.user).toBe(updatedPost.user);
     expect(post.title).toBe(updatedPost.title);
     expect(post.content).toBe(updatedPost.content);
   });
 
-  test("Posts get posts by sender", async () => {
-    const response = await request(app).get("/posts?sender=" + testPost1.sender);
+  test("Posts get posts by user", async () => {
+    const response = await request(app).get("/posts?user=" + testPost1.user);
     const post = response.body[0];
     expect(response.statusCode).toBe(200);
-    expect(post.sender).toBe(testPost1.sender);
+    expect(post.user).toBe(testPost1.user);
     expect(response.body.length).toBe(2);
   });
 
