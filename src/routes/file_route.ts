@@ -3,7 +3,7 @@ import multer from "multer";
 
 const router = express.Router();
 
-const base = process.env.BASE_URL;
+const base = process.env.BASE_URL || "http://localhost:3000/";
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -45,15 +45,8 @@ const upload = multer({ storage: storage });
  */
 
 router.post('/', upload.single("file"), function (req, res) {
-    if (!base) {
-        return res.status(500).send({ error: 'BASE_URL is not defined' });
-    }
-
-    if (!req.file || !req.file.path) {
-        return res.status(400).send({ error: 'File is not provided or path is undefined' });
-    }
-
-    res.status(200).send({ url: base + req.file.path })
+    console.log("router.post(/file: " + base + req.file?.path)
+    res.status(200).send({ url: base + req.file?.path })
 });
 
 export default router;
