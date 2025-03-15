@@ -35,6 +35,10 @@ const router = express.Router();
  *                     type: string
  *                   realestate:
  *                     type: string
+ *                   comments: 
+ *                     type: array
+ *                   userLikes:
+ *                  type: array  
  *                   _id:
  *                     type: string
  *       500:
@@ -73,6 +77,10 @@ router.get("/", postsController.getAll.bind(postsController));
  *                   type: string
  *                 realestate:
  *                   type: string
+ *                 comments: 
+ *                  type: array
+ *                 userLikes:
+ *                  type: array   
  *                 _id:
  *                   type: string
  *       404:
@@ -107,6 +115,10 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 type: string
  *               realestate:
  *                 type: string
+ *               comments: 
+ *                 type: array
+ *               userLikes:
+ *                 type: array  
  *     responses:
  *       201:
  *         description: Post created successfully
@@ -123,6 +135,10 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                    type: string
  *                 realestate:
  *                   type: string
+ *                 comments: 
+ *                   type: array
+ *                 userLikes:
+ *                   type: array  
  *                 _id:
  *                   type: string
  *       401:
@@ -164,6 +180,10 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                 type: string
  *               realestate:
  *                 type: string
+ *               comments: 
+ *                 type: array
+ *               userLikes:
+ *                 type: array  
  *     responses:
  *       200:
  *         description: Post updated successfully
