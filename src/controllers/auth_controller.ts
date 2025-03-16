@@ -18,19 +18,27 @@ const googleSignin = async (req: Request, res: Response) => {
         if (email != null) {
             let user = await userModel.findOne({ 'email': email });
             if (user == null) {
-                user = await userModel.create(
-                    {
-                        'email': email,
-                        'password': '0',
-                    });
+                user = await userModel.create({
+                    'email': email,
+                    'password': '0',
+                });
             }
-            const tokens = await generateTokens(user)
-            res.status(200).send(
-                {
-                    email: user.email,
-                    _id: user._id,
-                    ...tokens
-                })
+            const tokens = generateTokens(user);
+            if (!tokens) {
+                return res.status(400).send("Error generating tokens");
+            }
+            if (!user.refreshTokens) {
+                user.refreshTokens = [];
+            }
+            user.refreshTokens.push(tokens.refreshToken);
+            await user.save();
+            res.status(200).send({
+                email: user.email,
+                _id: user._id,
+                ...tokens
+            });
+        } else {
+            res.status(400).send("Invalid email");
         }
     } catch (err) {
         if (err instanceof Error) {
@@ -38,8 +46,7 @@ const googleSignin = async (req: Request, res: Response) => {
         }
         return res.status(400).send("An unknown error occurred");
     }
-
-}
+};
 
 const register = async (req: Request, res: Response) => {
     try {
