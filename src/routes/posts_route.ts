@@ -33,8 +33,51 @@ const router = express.Router();
  *                     type: string
  *                   user:
  *                     type: string
+import express from "express";
+import postsController from "../controllers/posts_controller";
+import { authMiddleware } from "../controllers/auth_controller";
+
+const router = express.Router();
+
+/**
+ * @swagger
+ * /posts:
+ *   get:
+ *     summary: Get all posts
+ *     description: Retrieve all posts or filter by user
+ *     tags: [Posts]
+ *     parameters:
+ *       - in: query
+ *         name: user
+ *         schema:
+ *           type: string
+ *         description: The ID of the user to filter posts by
+ *     responses:
+ *       200:
+ *         description: Posts retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   title:
+ *                     type: string
+ *                   content:
+ *                     type: string
+ *                   user:
+ *                     type: string
  *                   realestate:
  *                     type: string
+ *                   comments:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   userLikes:
+ *                     type: array
+ *                     items:
+ *                       type: string
  *                   _id:
  *                     type: string
  *       500:
@@ -69,10 +112,18 @@ router.get("/", postsController.getAll.bind(postsController));
  *                   type: string
  *                 content:
  *                   type: string
- *                 user: 
+ *                 user:
  *                   type: string
  *                 realestate:
  *                   type: string
+ *                 comments:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 userLikes:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
  *       404:
@@ -103,10 +154,18 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 type: string
  *               content:
  *                 type: string
- *               user:     
+ *               user:
  *                 type: string
  *               realestate:
  *                 type: string
+ *               comments:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               userLikes:
+ *                 type: array
+ *                 items:
+ *                   type: string
  *     responses:
  *       201:
  *         description: Post created successfully
@@ -120,9 +179,17 @@ router.get("/:id", postsController.getById.bind(postsController));
  *                 content:
  *                   type: string
  *                 user:
- *                    type: string
+ *                   type: string
  *                 realestate:
  *                   type: string
+ *                 comments:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 userLikes:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
  *       401:
@@ -164,6 +231,14 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                 type: string
  *               realestate:
  *                 type: string
+ *               comments:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               userLikes:
+ *                 type: array
+ *                 items:
+ *                   type: string
  *     responses:
  *       200:
  *         description: Post updated successfully
@@ -180,6 +255,14 @@ router.post("/", authMiddleware, postsController.create.bind(postsController));
  *                   type: string
  *                 realestate:
  *                   type: string
+ *                 comments:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 userLikes:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *                 _id:
  *                   type: string
  *       401:
@@ -210,7 +293,7 @@ router.put("/:id", authMiddleware, postsController.updateItem.bind(postsControll
  *         description: The post ID
  *     responses:
  *       200:
- *         description: 
+ *         description: Post deleted successfully
  *       401:
  *         description: Access denied
  *       404:

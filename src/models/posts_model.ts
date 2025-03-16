@@ -6,6 +6,7 @@ export interface IPost extends Document {
   user: mongoose.Schema.Types.ObjectId;
   comments: mongoose.Schema.Types.ObjectId[];
   realestate: mongoose.Schema.Types.ObjectId;
+  userLikes: mongoose.Schema.Types.ObjectId[];
 }
 
 const postSchema = new mongoose.Schema({
@@ -23,7 +24,15 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Realestate',
         required: true
-    },    
+    },
+    comments: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Comment'
+    }],
+    userLikes: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users'
+    }]
   });
   
   const postModel = mongoose.model<IPost>('Post', postSchema);
