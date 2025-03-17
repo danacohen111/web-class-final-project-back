@@ -43,7 +43,7 @@ const swaggerOptions = {
       version: "1.0.0",
       description: "REST server including authentication using JWT",
     },
-    servers: [{ url: "http://localhost:3000" }],
+    servers: [{ url: "https://node70.cs.colman.ac.il:4000/" }],
   },
   apis: ["./src/routes/*.ts"],
 };

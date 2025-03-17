@@ -7,7 +7,7 @@ import path from "path";
 let app: Express;
 
 beforeAll(async () => {
-    process.env.BASE_URL = "http://localhost:3000";
+    process.env.BASE_URL = "https://node70.cs.colman.ac.il:4000";
     app = await initApp();
     console.log("beforeAll");
 });
