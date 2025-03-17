@@ -21,6 +21,7 @@ const googleSignin = async (req: Request, res: Response) => {
                 user = await userModel.create({
                     'email': email,
                     'password': '0',
+                    'username': email.split("@")[0],
                 });
             }
             const tokens = generateTokens(user);
